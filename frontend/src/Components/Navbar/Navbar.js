@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
-
+import logo from "../../img/logo.png";
 /**
  * Render the Navbar which is styled by using Bootstrap
  * Each item in the Navbar is tightly coupled with the Router configuration :
@@ -16,7 +16,7 @@ const Navbar = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <img src="./../src/img/logo.png">
+            <img src="${logo}" width = "50" heigth = "25" atl ="logo" >
             </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
