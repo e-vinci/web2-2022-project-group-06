@@ -1,0 +1,10 @@
+header{
+    background-color: black;
+    align-items: flex-end;
+}
+
+#logo{
+    height: auto;
+    width: 200px;
+    align-items: flex-end;
+}
