@@ -17,7 +17,7 @@ const Navbar = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <img src="${logo}" width = "50" heigth = "25" atl ="logo" >
+            <a class="nav-link" href="#" data-uri="/"> <img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#" data-uri="/" >Home</a>
