@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import logo from "../../img/logo.png";
+
 /**
  * Render the Navbar which is styled by using Bootstrap
  * Each item in the Navbar is tightly coupled with the Router configuration :
@@ -11,7 +12,7 @@ import logo from "../../img/logo.png";
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
   const navbar = `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -19,7 +20,7 @@ const Navbar = () => {
             <img src="${logo}" width = "50" heigth = "25" atl ="logo" >
             </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
+                <a class="nav-link" aria-current="page" href="#" data-uri="/" >Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/login">Login</a>
