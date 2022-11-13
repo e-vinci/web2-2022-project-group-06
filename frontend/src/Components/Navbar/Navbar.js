@@ -1,6 +1,9 @@
+/* eslint-disable prefer-const */
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import logo from "../../img/logo.png";
+// eslint-disable-next-line no-unused-vars
+import { getSessionObject } from "../../utils/session";
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -11,14 +14,14 @@ import logo from "../../img/logo.png";
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
-  const navbar = `
+  let userSession = getSessionObject("user");
+  if (!userSession) {
+  const navbarlogout = `
   <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid">
+            <a class="nav-link" href="#" data-uri="/"> <img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link" href="#" data-uri="/"> <img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
-            </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#" data-uri="/" >Home</a>
               </li>
@@ -30,7 +33,35 @@ const Navbar = () => {
         </div>
       </nav>
   `;
-  navbarWrapper.innerHTML = navbar;
+
+  navbarWrapper.innerHTML = navbarlogout;
+
+  }else{
+    const navbarLog = `
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container-fluid">
+            <a class="nav-link" href="#" data-uri="/"> <img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#" data-uri="/" >Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#" data-uri="/game" >Jeu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#" data-uri="/profil" >Profil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/">Logout</a>
+              </li>                      
+            </ul>
+          </div>
+        </div>
+      </nav>
+    `;
+    navbarWrapper.innerHTML = navbarLog
+  };
 };
 
 export default Navbar;
