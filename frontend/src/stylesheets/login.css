@@ -40,14 +40,14 @@ form{
 	padding: 0 2em;
 }
 .form__input{
-	width: 100%;
+	width: 70%;
 	border:0px solid transparent;
 	border-radius: 0;
 	border-bottom: 1px solid #FFB835;
 	padding: 1em .5em .5em;
 	padding-left: 2em;
 	outline:none;
-	margin:1.5em auto;
+	margin:0.75em auto;
 	transition: all .5s ease;
 }
 .form__input:focus{

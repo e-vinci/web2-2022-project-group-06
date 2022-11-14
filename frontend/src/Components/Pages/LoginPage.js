@@ -9,7 +9,7 @@ const LoginPage = () => {
         <img class="login-logo" src="${logo}" alt ="logo" >
 			</div>
 			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-				<div class="container-fluid-login">
+				<div class="container-fluid">
 					<div class="row">
 						<h2>Log In</h2>
 					</div>
