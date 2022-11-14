@@ -19,7 +19,7 @@ const Navbar = () => {
   const navbarlogout = `
   <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid">
-            <a class="nav-link" href="#" data-uri="/"> <img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
+            <a class="nav-link" href="#" data-uri="/"> <img class="nav-logo" src="${logo}" alt ="logo" ></a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
