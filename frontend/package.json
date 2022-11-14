@@ -32,6 +32,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "nodemon": "^2.0.20",
     "phaser": "^3.55.2",
+    "phraser": "^0.4.0",
     "terser-webpack-plugin": "^5.3.6",
     "webpack-merge": "^5.8.0"
   }

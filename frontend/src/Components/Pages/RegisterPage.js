@@ -1,8 +1,8 @@
-import logo from "../../img/logo.png";
+import logo from '../../img/logo.png';
 
 const RegisterPage = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = `	<div class="container-fluid">
+  const main = document.querySelector('main');
+  main.innerHTML = `	<div class="container-fluid">
 		<div class="row main-content bg-success text-center">
 			<div class="col-md-4 text-center font-logo">
 				<span class="font-logo"></span>
@@ -30,6 +30,10 @@ const RegisterPage = () => {
                         <!-- <span class="fa fa-lock"></span> -->
                         <input type="mail" name="mail" id="mail" class="form__input" placeholder="Mail">
                     </div>
+					<div class="row">
+								<!-- <span class="fa fa-lock"></span> -->
+								<input type="yearBithday" name="yearBithday" id="yearBithday" class="form__input" placeholder="year of your bithday">
+							</div>
 							<div class="row">
 								<!-- <span class="fa fa-lock"></span> -->
 								<input type="password" name="password" id="password" class="form__input" placeholder="Password">
@@ -47,6 +51,6 @@ const RegisterPage = () => {
 		</div>
 	</div>
 	`;
-  };
-  
-  export default RegisterPage;
+};
+
+export default RegisterPage;
