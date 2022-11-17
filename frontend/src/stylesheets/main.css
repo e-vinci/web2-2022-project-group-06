@@ -27,7 +27,7 @@ body {
     box-shadow: 0 1px 20px 0 black;
     border: none;
     margin-bottom: 30px;
-    background-color: black;
+    background-color: white;
 }
 
 .m-r-0 {
@@ -42,7 +42,7 @@ body {
     border-radius: 5px 0 0 5px;
 }
 
-.bg-c-lite-green {
+.bg-img-profil{
         background-color: black;
 }
 
@@ -52,11 +52,10 @@ body {
 
 .card-block {
     padding: 1.25rem;
-    color: #FFB835;
-    text-align: center;
+
 }
 
-.m-b-25 {
+.img-profil {
     margin-bottom: 25px;
 }
 
@@ -100,21 +99,23 @@ p {
     line-height: 25px;
 }
 
-.m-b-10 {
+.box-ecart {
     margin-bottom: 10px;
 }
 
 .text-muted {
-    color: #FFB835 !important;
+    color: black !important;
+    text-align: center;
 }
 
 .b-b-default {
     border-bottom: 1px solid black;
 }
 
-.f-w-600 {
+.title-info-user{
     font-weight: 600;
     color: #FFB835;
+    text-align:center;
 }
 
 .m-b-20 {
@@ -129,7 +130,7 @@ p {
     padding-bottom: 5px !important;
 }
 
-.m-b-10 {
+.box-ecart{
     margin-bottom: 10px;
 }
 
