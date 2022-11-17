@@ -2,8 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import logo from "../../img/logo.png";
-// eslint-disable-next-line no-unused-vars
-import { getSessionObject } from "../../utils/session";
+
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -14,29 +13,6 @@ import { getSessionObject } from "../../utils/session";
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector('#navbarWrapper');
-  let userSession = getSessionObject("user");
-  if (!userSession) {
-  const navbarlogout = `
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-        <div class="container-fluid">
-            <a class="nav-link" href="#" data-uri="/"> <img class="nav-logo" src="${logo}" alt ="logo" ></a>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-uri="/" >Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/login">Login</a>
-              </li>                      
-            </ul>
-          </div>
-        </div>
-      </nav>
-  `;
-
-  navbarWrapper.innerHTML = navbarlogout;
-
-  }else{
     const navbarLog = `
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid">
@@ -53,7 +29,7 @@ const Navbar = () => {
                 <a class="nav-link" aria-current="page" href="#" data-uri="/profil" >Profil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/">Logout</a>
+                <a class="nav-link" href="#" data-uri="/login">Login</a>
               </li>                      
             </ul>
           </div>
@@ -62,6 +38,5 @@ const Navbar = () => {
     `;
     navbarWrapper.innerHTML = navbarLog
   };
-};
 
 export default Navbar;
