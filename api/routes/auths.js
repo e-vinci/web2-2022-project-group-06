@@ -9,7 +9,7 @@ router.post('/register', async (req, res) => {
   const name = req?.body?.name?.length !== 0 ? req.body.name : undefined;
   const firstname = req?.body?.firstname?.length !== 0 ? req.body.firstname : undefined;
   const mail = req?.body?.mail?.length !== 0 ? req.body.mail : undefined;
-  const yearBithday = req?.body?.yearBithday > 2001;
+  const yearBithday = req?.body?.yearBithday < 2002;
   const password = req?.body?.password?.length !== 0 ? req.body.password : undefined;
 
   if (!username || !name || !firstname || !mail || !yearBithday || !password) return res.sendStatus(400); // 400 Bad Request
