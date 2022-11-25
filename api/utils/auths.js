@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
-const { readOneUserFromUsername } = require('../models/users');
+const { readOneFromUserName } = require('../models/users');
 
-const jwtSecret = 'ilovemoney';
+const jwtSecret = 'iloveCasino';
 
 const authorize = (req, res, next) => {
-  const token = req.get('authorization');
+  const { token } = req.session;
   if (!token) return res.sendStatus(401);
 
   try {
@@ -12,7 +12,7 @@ const authorize = (req, res, next) => {
     console.log('decoded', decoded);
     const { username } = decoded;
 
-    const existingUser = readOneUserFromUsername(username);
+    const existingUser = readOneFromUserName(username);
 
     if (!existingUser) return res.sendStatus(401);
 
@@ -25,9 +25,8 @@ const authorize = (req, res, next) => {
 };
 
 const isAdmin = (req, res, next) => {
-  const { username } = req.user;
 
-  if (username !== 'admin') return res.sendStatus(403);
+  if (req.user.isAdmin === 1) return res.sendStatus(403);
   return next();
 };
 
