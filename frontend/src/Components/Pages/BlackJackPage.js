@@ -3,11 +3,13 @@ import GameScene from '../Game/GameScene';
 
 let game;
 
-const GamePage = () => {
-  const phaserGame = `
+const BlackJackPage = () => {
+  const main = document.querySelector('main');
+  main.innerHTML = `
 <div id="gameDiv" class="d-flex justify-content-center my-3">
 </div>`;
-
+};
+/*
   const main = document.querySelector('main');
   main.innerHTML = phaserGame;
 
@@ -33,4 +35,5 @@ const GamePage = () => {
   game = new Phaser.Game(config);
 };
 
-export default GamePage;
+*/
+export default BlackJackPage;
