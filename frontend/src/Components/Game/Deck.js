@@ -134,7 +134,10 @@ export default class Deck {
     }
 
     shuffle() {
-        
+        this.deck.sort(() => Math.random() - 0.5);
+    }
 
+    getIndex() {
+        return this.index;
     }
 }

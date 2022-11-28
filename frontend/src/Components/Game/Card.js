@@ -8,4 +8,16 @@ export default class Card{
     getSuit() {
         return this.suit;
     }
+
+    getNumer() {
+        return this.number;
+    }
+
+    getValue() {
+        return this.value;
+    }
+
+    getLink() {
+        return this.link;
+    }
 }
