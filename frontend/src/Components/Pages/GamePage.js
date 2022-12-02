@@ -1,36 +1,35 @@
-import Phaser from 'phaser';
-import GameScene from '../Game/GameScene';
-
-let game;
+// import Phaser from 'phaser';
+// import BlackJack from '../Game/BlackJack';
+import table from '../../img/table.png';
+import casinoCard from '../../img/CarteCasino.png'
 
 const GamePage = () => {
-  const phaserGame = `
-<div id="gameDiv" class="d-flex justify-content-center my-3">
-</div>`;
-
   const main = document.querySelector('main');
-  main.innerHTML = phaserGame;
+  main.innerHTML =` <div class="balckjack">
+      <div class="backgroudImg" >
+        <img class="imgTable_bj" src="${table}" alt="table"></img>
+      </div>
+      <div class="cardImg">
+          <img class="imgCard_bj" src="${casinoCard}" alt="card"></img>
+      </div>
+      <div class="buttonList">
+        <div class="bet">
+          <ul>
+            <li><button type="button" >1</button></li>
+            <li><button type="button" disabled>5</button></li>
+            <li><button type="button" disabled>10</button></li>
+            <li><button type="button" disabled>50</button></li>
+          </ul>
+          <ul hidden>
+            <li><button id="StandButton" type="button" >Stand</button></li>
+            <li><button id="HitButton" type="button" >Hit</button></li>
+            <li><button id="DoubleButton" type="button" disabled>Button</button></li>
+            <li><button id="Split" type="button" disabled>Split</button></li>
+          </ul>
+        </div>
+      </div>
+  </div> `;
 
-  const config = {
-    type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    physics: {
-      default: 'arcade',
-      arcade: {
-        gravity: { y: 300 },
-        debug: false,
-      },
-    },
-    scene: [GameScene],
-    //  parent DOM element into which the canvas created by the renderer will be injected.
-    parent: 'gameDiv',
-  };
-
-  // there could be issues when a game was quit (events no longer working)
-  // therefore destroy any started game prior to recreate it
-  if (game) game.destroy(true);
-  game = new Phaser.Game(config);
 };
 
 export default GamePage;
