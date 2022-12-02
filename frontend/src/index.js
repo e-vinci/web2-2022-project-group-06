@@ -5,10 +5,9 @@ import './stylesheets/navbar.css';
 import './stylesheets/footer.css';
 
 import Navbar from './Components/Navbar/Navbar';
-import Router from './Components/Router/Router';
 import Footer from './Components/Footer/Footer';
+import Router from './Components/Router/Router';
 
 Navbar();
-Router();
 Footer();
-
+Router();

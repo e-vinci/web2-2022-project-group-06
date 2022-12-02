@@ -52,3 +52,14 @@
   .mb-3{
     text-align: center;
   }
+
+  .contact_form{
+    color: #FFB835;
+    background-color: black;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+  }
+
+  .form-control-plaintext{
+    color: #FFB835;
+  }
