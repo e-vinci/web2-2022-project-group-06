@@ -24,6 +24,7 @@ router.post('/register', async (req, res) => {
     const mail = req?.body?.mail?.length !== 0 ? req.body.mail : undefined;
     const yearBithday = req?.body?.yearBithday?.length !== 0 ? req.body.yearBithday : undefined;
     const password = req?.body?.password?.length !== 0 ? req.body.password : undefined;
+    
  if(!username || !name|| !firstname|| !mail|| !yearBithday|| !password) return res.sendStatus(400)
  const newUser= await register(username,name,firstname,mail,yearBithday,password);
  if(!newUser) return  res.sendStatus(401);
