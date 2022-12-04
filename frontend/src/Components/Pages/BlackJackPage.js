@@ -3,7 +3,7 @@
 import table from '../../img/table.png';
 import casinoCard from '../../img/CarteCasino.png'
 
-const GamePage = () => {
+const BlackJackPage = () => {
   const main = document.querySelector('main');
   main.innerHTML =` <div class="balckjack">
       <div class="backgroudImg" >
@@ -32,4 +32,4 @@ const GamePage = () => {
 
 };
 
-export default GamePage;
+export default BlackJackPage;
