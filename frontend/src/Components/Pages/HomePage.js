@@ -1,15 +1,14 @@
 /* eslint-disable */
-import rotate from './../../utils/rotate.js';
 import image1 from './../../img/BlackJack.png';
 import image2 from './../../img/Machine.png';
 import image3 from './../../img/Roulette.png';
+
 
 const Homepage = () => {
   const main = document.querySelector('main');
   const menu = `
   <div class="container">
   <div class="slider">
-  <script src="${rotate}"></script>
     <div class="box1">
     <a class="nav-link" aria-current="page" href="#" data-uri="/blackJack"><img src="${image1}"></a>
     </div>
@@ -26,6 +25,20 @@ const Homepage = () => {
 main.innerHTML = menu;
 };
 
+
+/* eslint-disable */
+function rotate() {
+  var lastChild = $('.slider div:last-child').clone();
+  /*$('#test').html(lastChild)*/
+  $('.slider div').removeClass('firstSlide')
+  $('.slider div:last-child').remove();
+  $('.slider').prepend(lastChild)
+  $(lastChild).addClass('firstSlide')
+}
+
+window.setInterval(function(){
+  rotate()
+}, 4000);
 
 
 export default Homepage;
