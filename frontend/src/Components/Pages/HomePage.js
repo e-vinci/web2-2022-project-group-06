@@ -38,7 +38,7 @@ function rotate() {
 
 window.setInterval(function(){
   rotate()
-}, 4000);
+}, 3000);
 (jQuery,rotate,window);
 
 export default Homepage;

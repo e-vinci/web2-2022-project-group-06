@@ -156,13 +156,13 @@ p {
     margin-right: auto;
   }
   .slider {
-    height: 750px;
+    height: 100%;
     width:100vw;
     display: flex;
     perspective: 1000px;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 20%;
+
   }
   .box1{      
     background-size:cover;
