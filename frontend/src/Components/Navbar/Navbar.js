@@ -18,7 +18,7 @@ const Navbar = () => {
     <div class="wrapper">
     </div>
 <div class="container-fluid all-show">
-  <a class="nav-link" aria-current="page" href="#" data-uri="/"><img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
+  <a class="nav-link" aria-current="page" href="/" data-uri="/"><img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
   
