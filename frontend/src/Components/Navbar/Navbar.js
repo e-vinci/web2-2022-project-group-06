@@ -18,7 +18,9 @@ const Navbar = () => {
     <div class="wrapper">
     </div>
     <div class="container-fluid all-show">
-      <a class="nav-link" aria-current="page" href="/" data-uri="/"><img class="logoImg" src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
+    <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+    <img src="${logo}" width = "45" heigth = "30" atl ="logo" >
+    </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
   
@@ -44,6 +46,7 @@ const Navbar = () => {
         <li class="nav-item">
           <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/login">Login</a>
         </li>
+
       </ul>
     </div>
   </div>

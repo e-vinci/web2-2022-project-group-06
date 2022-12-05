@@ -7,7 +7,7 @@ const ContactPage = () => {
         <div class="row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="ConctactDoubleOrNothing@hotmail.com">
           </div>
           <div class="row">
             <label for="contactFormTextArea">Message</label>
