@@ -1,7 +1,7 @@
 // import Phaser from 'phaser';
 // import BlackJack from '../Game/BlackJack';
 import table from '../../img/table.png';
-import casinoCard from '../../img/CarteCasino.png'
+import casinoCard from '../../img/newCarte.png'
 
 const BlackJackPage = () => {
   const main = document.querySelector('main');
