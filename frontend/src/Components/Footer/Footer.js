@@ -27,6 +27,10 @@ const Footer = () => {
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
             </ul>
         </div>
+
+        <div class="col mb-3">
+
+        </div>
     
         <div class="col mb-3">
             <h5>Section</h5>
