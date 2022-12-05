@@ -17,36 +17,36 @@ const Navbar = () => {
     <nav class="navbar navbar-expand-lg navbar-red navbar-dark">
     <div class="wrapper">
     </div>
-<div class="container-fluid all-show">
-  <a class="nav-link" aria-current="page" href="/" data-uri="/"><img src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+    <div class="container-fluid all-show">
+      <a class="nav-link" aria-current="page" href="/" data-uri="/"><img class="logoImg" src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
   
-    <li class="nav-item">
-    <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a></button>
-    <div class="dropdown-content">
-    </li>
+        <li class="nav-item">
+        <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a></button>
+        <div class="dropdown-content">
+        </li>
 
-    <li class="nav-item">
-    <div class="dropdown">
-  <button class="dropbtn">Game</button>
-  <div class="dropdown-content">
-  <a class="nav-link" aria-current="page" href="#" data-uri="/blackJack">BlackJack</a>
-  <a class="nav-link" aria-current="page" href="#" data-uri="/roulette">Roulette</a>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="dropbtn">Game</button>
+            <div class="dropdown-content">
+              <a class="nav-link" aria-current="page" href="#" data-uri="/blackJack">BlackJack</a>
+              <a class="nav-link" aria-current="page" href="#" data-uri="/roulette">Roulette</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/contact">Contact</a></button>
+        </li>
+
+        <li class="nav-item">
+          <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/login">Login</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-    </li>
-
-    <li class="nav-item">
-    <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/contact">Contact</a></button>
-    </li>
-
-    <li class="nav-item">
-    <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/login">Login</a>
-    </li>
-  </ul>
-</div>
-</div>
 </nav>
     `;
     navbarWrapper.innerHTML = navbarLog
