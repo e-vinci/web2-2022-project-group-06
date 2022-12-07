@@ -31,6 +31,7 @@ const Navbar = () => {
               <div class="dropdown-content">
                 <a class="nav-link" aria-current="page" href="#" data-uri="/blackJack">BlackJack</a>
                 <a class="nav-link" aria-current="page" href="#" data-uri="/roulette">Roulette</a>
+                <a class="nav-link" aria-current="page" href="#" data-uri="/slotMachine">Slot Machine</a>
               </div>
             </div>
           </li>
