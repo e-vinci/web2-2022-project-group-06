@@ -5,6 +5,7 @@ import RegisterPage from '../Pages/RegisterPage';
 import ProfilPage from '../Pages/ProfilPage';
 import ContactPage from '../Pages/ContactPage';
 import RoulettePage  from '../Pages/RoulettePage'
+import SlotMachinePage from '../Pages/SlotMachinePage';
 
 const routes = {
   '/': HomePage,
@@ -14,6 +15,7 @@ const routes = {
   '/register':RegisterPage,
   '/profil':ProfilPage,
   '/contact': ContactPage,
+  '/slotMachine': SlotMachinePage,
 };
 
 export default routes;
