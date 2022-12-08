@@ -1,33 +1,34 @@
 const jwt = require('jsonwebtoken');
-const { readOneUserFromUsername } = require('../models/users');
+const { readOneFromUserName } = require('../models/users');
 
-const jwtSecret = 'ilovemoney';
+const jwtSecret = 'iloveCasino';
 
 const authorize = (req, res, next) => {
-  const token = req.get('authorization');
+  const { token } = req.session;
   if (!token) return res.sendStatus(401);
 
   try {
     const decoded = jwt.verify(token, jwtSecret);
+    // eslint-disable-next-line no-console
     console.log('decoded', decoded);
     const { username } = decoded;
 
-    const existingUser = readOneUserFromUsername(username);
+    const existingUser = readOneFromUserName(username);
 
     if (!existingUser) return res.sendStatus(401);
 
     req.user = existingUser; // request.user object is available in all other middleware functions
     return next();
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error('authorize: ', err);
     return res.sendStatus(401);
   }
 };
 
 const isAdmin = (req, res, next) => {
-  const { username } = req.user;
 
-  if (username !== 'admin') return res.sendStatus(403);
+  if (req.user.isAdmin === 1) return res.sendStatus(403);
   return next();
 };
 

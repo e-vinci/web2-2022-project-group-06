@@ -2,8 +2,8 @@ import logo from "../../img/logo.png";
 
 const LoginPage = () => {
     const main = document.querySelector('main');
-    main.innerHTML = `	<div class="container-fluid">
-	<p>FUCK </p>
+    main.innerHTML = `	
+	<div class="container-fluid">
 		<div class="row main-content bg-success text-center">
 			<div class="col-md-4 text-center font-logo">
 				<span class="font-logo"></span>
