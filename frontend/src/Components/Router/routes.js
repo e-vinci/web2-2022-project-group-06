@@ -1,4 +1,4 @@
-import GamePage from '../Pages/GamePage';
+import GamePage from '../Pages/BlackJackPage';
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
