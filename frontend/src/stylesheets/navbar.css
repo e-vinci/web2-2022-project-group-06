@@ -106,7 +106,3 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: black;}
-
-.logoTwitter{
-  margin-left: 700px;
-}
