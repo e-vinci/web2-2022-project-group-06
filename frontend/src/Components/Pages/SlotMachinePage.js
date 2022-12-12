@@ -11,7 +11,7 @@ const SlotMachinePage = () => {
     <input type="text" id="credits"placeholder="Enter your credits to bet"/>  
   </div>
   <div id="container" class="animated bounceIn">
-    <h1 id="result" class="animated bounceInDown">CLICK ON THE BUTTON BELOW</h1>
+    <h1 id="result" class="animated bounceInDown"><b>Slot Machine</b></h1>
     <div id="itemContainer">
       <div id="figure1" class="itemSM">1</div>
       <div id="figure2" class="itemSM">2</div>

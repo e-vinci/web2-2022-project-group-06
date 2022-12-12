@@ -1,3 +1,13 @@
+#result {
+  font-size: 30px;
+  color: black;
+}
+
+#result b {
+  font-size: 70px;
+  color: gold;
+}
+
 :root{
     --col1: #2A3132;
     --col2: #505160;

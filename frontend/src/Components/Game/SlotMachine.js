@@ -1,6 +1,5 @@
 /* eslint-disable */
-
-
+var spin = document.getElementById("spin");
 var figure1 = document.getElementById("figure1");
 var figure2 = document.getElementById("figure2");
 var figure3 = document.getElementById("figure3");
@@ -9,9 +8,8 @@ var spinWon =  document.getElementById("spinWon");
 var spinLost =  document.getElementById("spinLost");
 var oddsText =  document.getElementById("odds");
 var textCredits =  document.getElementById("textCredits");
-var totWon = 0,totLost = 0; totCredits = 1000;
+var totWon = 0,totLost = 0 ,totWonWith2 = 0; totCredits = 1000;
 colors = ["royalblue","red","green"];
-
 
 function generateRandom(){
   var  rnd = Math.floor(Math.random()*colors.length);
@@ -22,7 +20,11 @@ function checkResult(n1,n2,n3){
   return (n1 == n2 && n2 == n3) ? true : false;
 }
 
-function spin(){
+function checkResultOnlyTwo(n1, n2, n3){
+  return((n1 == n2 && n1 !== n3) || (n1 == n3 && n1 !== n2) || (n2 == n3 && n2 !== n1)) ? true : false;
+}
+
+spin.onclick = function spin(){
   var credits =  document.getElementById("credits").value;
   if(credits > 0 && credits <= totCredits){
     var n1 = generateRandom();
@@ -42,12 +44,20 @@ function spin(){
     figure3.style.background = colors[n3];
 
     var success = checkResult(n1,n2,n3);
+    var success2 = checkResultOnlyTwo(n1,n2,n3);
     if(success){
       result.innerHTML = "YOU <green>WON</green>";
       totWon++;
       spinWon.innerHTML = totWon;
       manageCredits(true);
-    }else{
+    }
+    if(success2){
+      result.innerHTML = "YOU <green>WON with only two</green>";
+      totWonWith2++;
+      spinWon.innerHTML = totWonWith2
+      manageCreditsWin2(true);
+    }
+    else{
       result.innerHTML = "YOU <red>LOST<red>";
       totLost++;
       spinLost.innerHTML = totLost;
@@ -71,6 +81,18 @@ function manageCredits(x){
   var credits =  document.getElementById("credits").value;
   if(x){
     totCredits += credits*8;
+    textCredits.innerHTML = totCredits;
+  }
+  else{
+    totCredits -= credits;
+    textCredits.innerHTML = totCredits;
+  }
+}
+
+function manageCreditsWin2(x){
+  var credits =  document.getElementById("credits").value;
+  if(x){
+    totCredits += credits*4;
     textCredits.innerHTML = totCredits;
   }
   else{
