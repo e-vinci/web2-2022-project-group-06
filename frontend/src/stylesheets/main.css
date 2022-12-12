@@ -158,6 +158,7 @@ p {
     justify-content:center;
     align-items:center;
   }
+
   .slider {
     height: 550px;
     width:50vw;
@@ -257,6 +258,14 @@ p {
   }
 
   .ImageMenu{
-    width: 100vh;
-    height: 60vh;
+    width:100vh;
+    height:60vh;
   }
+
+  
+ /* Conctact Page */
+
+ .backConctat{
+  background-image: url('../img/background/background-home-2.jpg');
+  background-size: cover;
+ }
