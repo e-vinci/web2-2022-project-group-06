@@ -7,6 +7,7 @@ import jQuery from 'jquery';
 const Homepage = () => {
   const main = document.querySelector('main');
   const menu = `
+  <div class="backHome">
   <div class="container">
   <div class="slider">
     <div class="box1">
@@ -28,6 +29,7 @@ const Homepage = () => {
     <a class="nav-link" aria-current="page" href="/roulette" data-uri="/roulette"><img class="ImageMenu" src="${image3}"></a>
     </div>
   </div>
+</div>
 </div>
 <div id="test"></div>
   `;
