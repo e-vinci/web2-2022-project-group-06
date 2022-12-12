@@ -1,5 +1,4 @@
 /* eslint-disable */
-var spin = document.getElementById("spin");
 var figure1 = document.getElementById("figure1");
 var figure2 = document.getElementById("figure2");
 var figure3 = document.getElementById("figure3");
@@ -24,7 +23,7 @@ function checkResultOnlyTwo(n1, n2, n3){
   return((n1 == n2 && n1 !== n3) || (n1 == n3 && n1 !== n2) || (n2 == n3 && n2 !== n1)) ? true : false;
 }
 
-spin.onclick = function spin(){
+function spin(){
   var credits =  document.getElementById("credits").value;
   if(credits > 0 && credits <= totCredits){
     var n1 = generateRandom();
@@ -100,3 +99,5 @@ function manageCreditsWin2(x){
     textCredits.innerHTML = totCredits;
   }
 }
+
+export default {spin , manageCredits , manageCreditsWin2, checkResult, checkResultOnlyTwo , generateRandom}
