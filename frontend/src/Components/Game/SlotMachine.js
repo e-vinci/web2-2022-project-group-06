@@ -1,5 +1,6 @@
 /* eslint-disable */
 
+
 var figure1 = document.getElementById("figure1");
 var figure2 = document.getElementById("figure2");
 var figure3 = document.getElementById("figure3");
