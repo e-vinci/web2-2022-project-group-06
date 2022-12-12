@@ -9,7 +9,7 @@ import SlotMachinePage from '../Pages/SlotMachinePage';
 
 const routes = {
   '/': HomePage,
-  '/blackJack': BlackJackPage,
+  '/blackJack': GamePage,
   '/roulette':RoulettePage,
   '/login': LoginPage,
   '/register':RegisterPage,

@@ -2,6 +2,9 @@
 import Deck from './Deck';
 
 let check = false;
+let hit = true;
+let playerScore=0;
+let dealerScore=0;
 
 // const numberPlayer = 2;
 
@@ -9,15 +12,18 @@ const dealerDeck = [];
 const playerDeck = [];
 const deckParty = new Deck();
 deckParty.createDeck();
+deckParty.shuffle();
+
 
 // deckParty.shuffle();
 
 function setBet(bet) {
+    startGame();
+    console.log(playerDeck);
+
 
 }
 
-
-setBet(3);
 
 
 function startGame() {
@@ -35,9 +41,10 @@ function startGame() {
     const f = deckParty.cardOnTop();
     dealerDeck.push(f);
     
-    while ( playerScore <=21 && dealerScore <= 21 && check===false) {
+    while ( dealerScore <17) {
         playerScore = verifyPlayerScore();
-        dealerScore = verifyDealerScore();
+        dealerScore += verifyDealerScore();
+        dealerDeck.push(deckParty.cardOnTop());
 
 
     }
@@ -52,11 +59,22 @@ function startGame() {
 // startGame();
 
 function hitACard() {
+    if (hit=false) return;
     console.log(deckParty.getDeck());
-    playerDeck.push(deckParty.cardOnTop());
-    console.log("ICIICIICCIC");
-    console.log(playerDeck[0].getSuit());
-    console.log(playerDeck[0].getValue());
+    const newCard = deckParty.cardOnTop();
+    playerDeck.push(newCard);
+    if (verifyPlayerScore>21) {
+        hit=false;
+    }
+    console.log(newCard);
+    return newCard;
+}
+
+function checkStay() {
+    check=true;
+    hit=false;
+
+    
 }
 
 
@@ -76,4 +94,5 @@ function verifyDealerScore() {
     return score;
 }
 
-export default hitACard;
+
+export {hitACard, setBet, startGame, checkStay};
