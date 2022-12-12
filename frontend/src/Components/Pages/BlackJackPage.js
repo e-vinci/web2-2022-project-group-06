@@ -1,9 +1,9 @@
 /* eslint-disable */
 import table from '../../img/table.png';
 import casinoCard from '../../img/newCarte.png';
-import {hitACard, setBet, checkStay} from '../Game/BlackJack';
-import methods from '../Game/BlackJack';
+import {hitACard, setBet, checkStay, hitAvailable, playerDeck, check,splitAvailable, dealerDeck} from '../Game/BlackJack';
 import test from '../../img/Cards/cardHearts2.png';
+import clubsone from '../../img/Cards/cardClubsA.png';
 
 const BlackJackPage = () => {
   const main = document.querySelector('main');
@@ -18,10 +18,10 @@ const BlackJackPage = () => {
       <div class="buttonList">
         <div id="bet">
           <ul>
-            <li><button id="bet1" type="button" >1</button></li>
-            <li><button id="bet5" type="button" >5</button></li>
-            <li><button id="bet10" type="button" disabled>10</button></li>
-            <li><button id="bet50" type="button" >50</button></li>
+            <li><button id="bet1" type="button" >10</button></li>
+            <li><button id="bet5" type="button" >50</button></li>
+            <li><button id="bet10" type="button" disabled>100</button></li>
+            <li><button id="bet50" type="button" disabled>500</button></li>
           </ul>
           </div>
         <div id="gameButton" hidden>  
@@ -33,6 +33,7 @@ const BlackJackPage = () => {
           </ul>
         </div>  
       </div>
+      <div id="dealer-cards"></div> 
       <div id="your-cards"></div> 
   </div> 
   `;
@@ -42,6 +43,7 @@ const BlackJackPage = () => {
     const test = document.getElementById("bet");
     test.hidden=true;
     document.getElementById("gameButton").hidden=false;
+    console.log(hitAvailable);
   });
 
   const bet5 = document.getElementById("bet5");
@@ -50,6 +52,9 @@ const BlackJackPage = () => {
     const test = document.getElementById("bet");
     test.hidden=true;
     document.getElementById("gameButton").hidden=false;
+    testttt();
+    console.log(hitAvailable);
+    if (splitAvailable==true) {}
   });
 
   const bet10 = document.getElementById("bet10");
@@ -66,14 +71,59 @@ const BlackJackPage = () => {
     const test = document.getElementById("bet");
     test.hidden=true;
     document.getElementById("gameButton").hidden=false;
+    testttt();
+    console.log(hitAvailable);
   });
+  
+  function testttt() {
+   for (let index = 0; index < playerDeck.length; index++) {
+    
+    const card=document.createElement("img");
+    const linkn = playerDeck[index].getLink();
+    import(
+      /* webpackMode: "lazy-once" */
+      `../../img/${linkn}`
+    )
+    .then(src => card.src = src.default)
+    .catch(err => console.error(err));    
+    document.getElementById("your-cards").appendChild(card);
+    
+   }
+   const card=document.createElement("img");
+   card.src=casinoCard;
+   document.getElementById("dealer-cards").appendChild(card);
+
+   for (let index = 1; index < dealerDeck.length; index++) {
+    
+    const card=document.createElement("img");
+    const linkn = dealerDeck[index].getLink();
+    import(
+      /* webpackMode: "lazy-once" */
+      `../../img/${linkn}`
+    )
+    .then(src => card.src = src.default)
+    .catch(err => console.error(err));    
+    document.getElementById("dealer-cards").appendChild(card);
+    
+   }
+  }
 
   const hitButton = document.getElementById("HitButton");
   hitButton.addEventListener("click",function(){
     const cardPlayer = hitACard();
     const card=document.createElement("img");
-    card.src=cardPlayer.getLink();
+    const link=cardPlayer.getLink();
+    import(
+      /* webpackMode: "lazy-once" */
+      `../../img/${link}`
+    )
+    .then(src => card.src = src.default)
+    .catch(err => console.error(err));
+    // card.src=test;
+    console.log(hitAvailable);
     document.getElementById("your-cards").appendChild(card);
+    if (hitAvailable==false) {hitButton.disabled=true;}
+
   });
 
   const standButton = document.getElementById("StandButton");
@@ -81,10 +131,7 @@ const BlackJackPage = () => {
     checkStay();
   });
 
-  const card=document.createElement("img");
-  card.src=test;
-  document.getElementById("your-cards").appendChild(card);
-
+  
 };
 
 export default BlackJackPage;

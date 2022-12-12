@@ -120,23 +120,43 @@
     left: 15%;
 }
 
-.your-cards {
+#your-cards {
+    display: flex;
+
+    padding:0;
     width: 100px;
     height: 18%;
     position:absolute ;
     top: 55%;
     left: 15%;
+    border: 65px;
+    
+    
+}
+
+#dealer-cards {
+    display: flex;
+
+    margin:0;
+    padding:0;
+    width: 100px;
+    height: 18%;
+    position:absolute ;
+    top: 35%;
+    left: 15%;
+    
 }
 
 #bet ul {
     position: absolute;
-    top: 70%;
+    top: 90%;
     left: 25%;
+    
 }
 
 #gameButton ul {
     position: absolute;
-    top: 70%;
+    top: 90%;
     left: 25%;
 }
 
