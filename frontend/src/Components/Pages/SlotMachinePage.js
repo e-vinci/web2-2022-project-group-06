@@ -1,25 +1,55 @@
 // import Phaser from 'phaser';
-// import BlackJack from '../Game/BlackJack';
+// import SlotMachine from '../Game/SlotMachine';
+import grille from '../../img/grilleSM.jpg'
+
 
 
 const SlotMachinePage = () => {
   const main = document.querySelector('main');
-  main.innerHTML =` <div class="hd">
-  <h1>[#########..........In Progress...................] </h1>
-  </div>
-  <div class="bd">
-      <h1>Slot Machine</h1>
-      <div class="container">
-          <div class="slot-wrapper">
-              <div id="slot1" class="slot"></div>
-              <div id="slot2" class="slot"></div>
-              <div id="slot3" class="slot"></div>
-              <div class="clear"></div>
-          </div>
-          <div id="result"></div>
-          <div><button id="control">Start</button></div>
-      </div>
-  </div> `;
+  main.innerHTML =` <div class="row">
+  <div id="slot_box1">
+      <ul id="list">
+          <li data-roll="1"><img src="${grille}" alt"img slot"></img></li>
+          <li data-roll="2"><img src="${grille}" alt"img slot"></li>
+          <li data-roll="3"><img src="${grille}" alt"img slot"></li>
+          <li data-roll="4"><img src="${grille}" alt"img slot"></li>
+          <li data-roll="5"><img src="${grille}" alt"img slot"></li>
+          <li data-roll="6"><img src="${grille}" alt"img slot"></li>
+          <li data-roll="7"><img src="${grille}" alt"img slot"></li>
+          <li data-roll="8"><img src="${grille}" alt"img slot"></li>							
+      </ul>
+  </div><!-- end slot box -->	
+
+  <div id="slot_box2">
+          <ul id="list">
+              <li data-roll="1"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="2"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="3"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="4"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="5"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="6"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="7"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="8"><img src="${grille}" alt"img slot"></li>							
+          </ul>
+    </div><!-- end slot box -->	
+
+    <div id="slot_box3">
+          <ul id="list">
+              <li data-roll="1"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="2"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="3"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="4"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="5"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="6"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="7"><img src="${grille}" alt"img slot"></li>
+              <li data-roll="8"><img src="${grille}" alt"img slot"></li>							
+          </ul>
+    </div><!-- end slot box -->		
+
+</div>
+<button id="btn_r">next</button>
+<div id="symbol_no1"></div>
+<div id="symbol_no2"></div> `;
 
 };
 

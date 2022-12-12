@@ -11,6 +11,7 @@
 }
 
 .bet ul {
+    
     text-align: center;    
 }
 
@@ -22,7 +23,7 @@
     margin: 0 25px;
     list-style: none;
     transition: transform 0.3s ease ;
-    top: 50%;
+    top: 100%;
 
 }
 
