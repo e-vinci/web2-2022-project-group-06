@@ -1,5 +1,6 @@
 body{
-    background-color: rgb(86, 86, 86);
+    background-image: url('../img/background/background-home-2.jpg');
+    background-size: cover;
 }
 
 .nav-link{
