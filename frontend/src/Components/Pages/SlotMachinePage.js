@@ -1,56 +1,38 @@
 // import Phaser from 'phaser';
-// import SlotMachine from '../Game/SlotMachine';
-import grille from '../../img/grilleSM.jpg'
+
+
 
 
 
 const SlotMachinePage = () => {
   const main = document.querySelector('main');
-  main.innerHTML =` <div class="row">
-  <div id="slot_box1">
-      <ul id="list">
-          <li data-roll="1"><img src="${grille}" alt"img slot"></img></li>
-          <li data-roll="2"><img src="${grille}" alt"img slot"></li>
-          <li data-roll="3"><img src="${grille}" alt"img slot"></li>
-          <li data-roll="4"><img src="${grille}" alt"img slot"></li>
-          <li data-roll="5"><img src="${grille}" alt"img slot"></li>
-          <li data-roll="6"><img src="${grille}" alt"img slot"></li>
-          <li data-roll="7"><img src="${grille}" alt"img slot"></li>
-          <li data-roll="8"><img src="${grille}" alt"img slot"></li>							
-      </ul>
-  </div><!-- end slot box -->	
+  main.innerHTML =`  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
-  <div id="slot_box2">
-          <ul id="list">
-              <li data-roll="1"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="2"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="3"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="4"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="5"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="6"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="7"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="8"><img src="${grille}" alt"img slot"></li>							
-          </ul>
-    </div><!-- end slot box -->	
-
-    <div id="slot_box3">
-          <ul id="list">
-              <li data-roll="1"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="2"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="3"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="4"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="5"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="6"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="7"><img src="${grille}" alt"img slot"></li>
-              <li data-roll="8"><img src="${grille}" alt"img slot"></li>							
-          </ul>
-    </div><!-- end slot box -->		
-
-</div>
-<button id="btn_r">next</button>
-<div id="symbol_no1"></div>
-<div id="symbol_no2"></div> `;
+  <div id="scores" class="animated bounceIn">
+    <h1 >Credits: <value id="textCredits">1000<value></h1>
+    <input type="text" id="credits"placeholder="Enter your credits to bet"/>  
+  </div>
+  <div id="container" class="animated bounceIn">
+    <h1 id="result" class="animated bounceInDown">CLICK ON THE BUTTON BELOW</h1>
+    <div id="itemContainer">
+      <div id="figure1" class="item">1</div>
+      <div id="figure2" class="item">2</div>
+      <div id="figure3" class="item">3</div>
+    </div>
+  
+    <button id="spin" class="animated bounceInUp" onclick="spin()">SPIN</button>
+  </div>
+  
+  <div id="scores" class="animated bounceIn">
+    <h1 >Won: <value id="spinWon">0<value></h1>
+    <h1 >Lost: <value id="spinLost">0<value></h1>
+    <h1 >Odds: <value id="odds">0<value></h1>
+  </div>
+  
+   `;
 
 };
+
+
 
 export default SlotMachinePage;
