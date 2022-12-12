@@ -34,6 +34,7 @@ li[data-roll="2"]{}
 }
 
 #list li{
+	background: url("../img/grilleSM.jpg");
 	background-size: 800px 793px;
 }
 #list li[data-roll="1"]{ background-position: 0 0;}
