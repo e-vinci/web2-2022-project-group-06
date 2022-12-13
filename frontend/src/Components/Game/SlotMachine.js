@@ -1,118 +1,103 @@
 /* eslint-disable */
-import jQuery from 'jquery';
+var figure1 = document.getElementById("figure1");
+var figure2 = document.getElementById("figure2");
+var figure3 = document.getElementById("figure3");
+var result =  document.getElementById("result");
+var spinWon =  document.getElementById("spinWon");
+var spinLost =  document.getElementById("spinLost");
+var oddsText =  document.getElementById("odds");
+var textCredits =  document.getElementById("textCredits");
+var totWon = 0,totLost = 0 ,totWonWith2 = 0; totCredits = 1000;
+colors = ["royalblue","red","green"];
 
-function Slot(el, max, step) {
-    this.speed = 0; // speed of the slot at any point of time
-    this.step = step; // speed will increase at this rate
-    this.si = null; // holds setInterval object for the given slot
-    this.el = el; // dom element of the slot
-    this.maxSpeed = max; // max speed this slot can have
+function generateRandom(){
+  var  rnd = Math.floor(Math.random()*colors.length);
+  return rnd;
 }
 
-const a = new Slot('#slot1', 30, 1);
-const b = new Slot('#slot2', 45, 2);
-const c = new Slot('#slot3', 70, 3);
+function checkResult(n1,n2,n3){
+  return (n1 == n2 && n2 == n3) ? true : false;
+}
 
+function checkResultOnlyTwo(n1, n2, n3){
+  return((n1 == n2 && n1 !== n3) || (n1 == n3 && n1 !== n2) || (n2 == n3 && n2 !== n1)) ? true : false;
+}
 
-Slot.prototype.start = function() {
-    const _this = this;
-    $(_this.el).addClass('motion');
-    $(_this.el).spStart();
-    _this.si = window.setInterval(function() {
-        if(_this.speed < _this.maxSpeed) {
-            _this.speed += _this.step;
-            $(_this.el).spSpeed(_this.speed);
-        }
-    }, 100);
-};
+function spin(){
+  var credits =  document.getElementById("credits").value;
+  if(credits > 0 && credits <= totCredits){
+    var n1 = generateRandom();
+    var n2 = generateRandom();
+    var n3 = generateRandom();
 
-Slot.prototype.stop = function() {
-    const _this = this;
-    const limit = 30;
-    clearInterval(_this.si);
-    _this.si = window.setInterval(function() {
-        if(_this.speed > limit) {
-            _this.speed -= _this.step;
-            $(_this.el).spSpeed(_this.speed);
-        }
-        if(_this.speed <= limit) {
-            _this.finalPos(_this.el);
-            $(_this.el).spSpeed(0);
-            $(_this.el).spStop();
-            clearInterval(_this.si);
-            $(_this.el).removeClass('motion');
-            _this.speed = 0;
-        }
-    }, 100);
-};
+    figure1.classList.add("animated","bounceIn");
+    figure2.classList.add("animated","bounceIn");
+    figure3.classList.add("animated","bounceIn");
 
+    figure1.innerHTML= n1;
+    figure2.innerHTML = n2;
+    figure3.innerHTML = n3;
 
-Slot.prototype.start = function() {
-    var _this = this;
-    $(_this.el).addClass('motion');
-    $(_this.el).spStart();
-    _this.si = window.setInterval(function() {
-        if(_this.speed < _this.maxSpeed) {
-            _this.speed += _this.step;
-            $(_this.el).spSpeed(_this.speed);
-        }
-    }, 100);
-};
+    figure1.style.background = colors[n1];
+    figure2.style.background = colors[n2];
+    figure3.style.background = colors[n3];
 
-Slot.prototype.stop = function() {
-    var _this = this,
-        limit = 30;
-    clearInterval(_this.si);
-    _this.si = window.setInterval(function() {
-        if(_this.speed > limit) {
-            _this.speed -= _this.step;
-            $(_this.el).spSpeed(_this.speed);
-        }
-        if(_this.speed <= limit) {
-            _this.finalPos(_this.el);
-            $(_this.el).spSpeed(0);
-            $(_this.el).spStop();
-            clearInterval(_this.si);
-            $(_this.el).removeClass('motion');
-            _this.speed = 0;
-        }
-    }, 100);
-};
-
-
-Slot.prototype.finalPos = function() {
-    var el = this.el,
-        pos,
-        posMin = 2000000000,
-        best,
-        bgPos,
-        i,
-        j,
-        k;
- 
-    el_id = $(el).attr('id');
-    pos = document.getElementById(el_id).style.backgroundPosition;
-    pos = pos.split(' ')[1];
-    pos = parseInt(pos, 10);
- 
-    for(i = 0; i < posArr.length; i++) {
-        for(j = 0;;j++) {
-            k = posArr[i] + (imgHeight * j);
-            if(k > pos) {
-                if((k - pos) < posMin) {
-                    posMin = k - pos;
-                    best = k;
-                }
-                break;
-            }
-        }
+    var success = checkResult(n1,n2,n3);
+    var success2 = checkResultOnlyTwo(n1,n2,n3);
+    if(success){
+      result.innerHTML = "YOU <green>WON</green>";
+      totWon++;
+      spinWon.innerHTML = totWon;
+      manageCredits(true);
     }
- 
-    best += imgHeight + 4;
-    bgPos = "0 " + best + "px";
-    $(el).animate({
-        backgroundPosition:"(" + bgPos + ")"
-    }, {
-        duration: 200
-    });
-};
+    if(success2){
+      result.innerHTML = "YOU <green>WON with only two</green>";
+      totWonWith2++;
+      spinWon.innerHTML = totWonWith2
+      manageCreditsWin2(true);
+    }
+    else{
+      result.innerHTML = "YOU <red>LOST<red>";
+      totLost++;
+      spinLost.innerHTML = totLost;
+      manageCredits(false);
+    }
+
+    odds = Math.floor((totWon/(totWon+totLost))*100);
+    oddsText.innerHTML = odds+"%";
+
+    setTimeout(()=>{
+      figure1.classList.remove("animated","bounceIn");
+      figure2.classList.remove("animated","bounceIn");
+      figure3.classList.remove("animated","bounceIn");
+    },500);
+  }else{
+    result.innerHTML = "<red>🢠🢠🢠</red> INSERT CREDITS"
+  }
+}
+
+function manageCredits(x){
+  var credits =  document.getElementById("credits").value;
+  if(x){
+    totCredits += credits*8;
+    textCredits.innerHTML = totCredits;
+  }
+  else{
+    totCredits -= credits;
+    textCredits.innerHTML = totCredits;
+  }
+}
+
+function manageCreditsWin2(x){
+  var credits =  document.getElementById("credits").value;
+  if(x){
+    totCredits += credits*4;
+    textCredits.innerHTML = totCredits;
+  }
+  else{
+    totCredits -= credits;
+    textCredits.innerHTML = totCredits;
+  }
+}
+
+export default {spin , manageCredits , manageCreditsWin2, checkResult, checkResultOnlyTwo , generateRandom}
