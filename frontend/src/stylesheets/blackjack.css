@@ -81,7 +81,7 @@
     content: "";
     position: absolute;
     opacity: 0.3;
-    background: rgb(137, 0, 27);
+    background: rgb(55, 54, 54, 0.845);
     border-radius: inherit;
     width: auto;
     height: auto;
@@ -95,7 +95,7 @@
     content: "";
     position: absolute;
     opacity: 0.3;
-    background: rgb(137, 0, 27);
+    background: rgb(55, 54, 54, 0.845);
     border-radius: inherit;
     width: auto;
     height: auto;
@@ -124,7 +124,7 @@
 #your-cards {
     display: flex;
 
-    padding:0;
+    margin-left: 8px;
     width: 100px;
     height: 18%;
     position:absolute ;
@@ -138,13 +138,13 @@
 #dealer-cards {
     display: flex;
 
-    margin:0;
-    padding:0;
+    margin-left: 8px;
     width: 100px;
     height: 18%;
     position:absolute ;
     top: 35%;
     left: 15%;
+    border: 65px;
     
 }
 
@@ -163,13 +163,13 @@
 
 
 #bet button:enabled {
-    background-color: rgba(211, 4, 45, 0.845);
-    border-color:  #e91212 ;
+    background-color: rgba(55, 54, 54, 0.845);
+    border-color:  #f6dd00 ;
 }
 
 #gameButton button:enabled {
-    background-color: rgba(211, 4, 45, 0.845);
-    border-color:  #e91212 ;
+    background-color: rgba(55, 54, 54, 0.845);
+    border-color:  #f6dd00 ;
 }
 
 #bet button:disabled {

@@ -44,7 +44,7 @@ const BlackJackPage = () => {
     const test = document.getElementById("bet");
     test.hidden=true;
     document.getElementById("gameButton").hidden=false;
-    console.log(hitAvailable);
+    StartingGame();
   });
 
   const bet5 = document.getElementById("bet5");
@@ -53,8 +53,7 @@ const BlackJackPage = () => {
     const test = document.getElementById("bet");
     test.hidden=true;
     document.getElementById("gameButton").hidden=false;
-    testttt();
-    console.log(hitAvailable);
+    StartingGame();
     if (splitAvailable==true) {}
   });
 
@@ -63,6 +62,7 @@ const BlackJackPage = () => {
     setBet(10);
     const test = document.getElementById("bet");
     test.hidden=true;
+    StartingGame();
     document.getElementById("gameButton").hidden=false;
   });
 
@@ -72,11 +72,10 @@ const BlackJackPage = () => {
     const test = document.getElementById("bet");
     test.hidden=true;
     document.getElementById("gameButton").hidden=false;
-    testttt();
-    console.log(hitAvailable);
+    StartingGame();
   });
   
-  function testttt() {
+  function StartingGame() {
    for (let index = 0; index < playerDeck.length; index++) {
     
     const card=document.createElement("img");
@@ -86,12 +85,14 @@ const BlackJackPage = () => {
       `../../img/${linkn}`
     )
     .then(src => card.src = src.default)
-    .catch(err => console.error(err));    
+    .catch(err => console.error(err));
+    card.hspace=10;    
     document.getElementById("your-cards").appendChild(card);
+    setInterval(1000);
     
    }
    const card=document.createElement("img");
-   card.src=casinoCard;
+   card.src=casinoCard;  
    document.getElementById("dealer-cards").appendChild(card);
 
    for (let index = 1; index < dealerDeck.length; index++) {
@@ -103,8 +104,10 @@ const BlackJackPage = () => {
       `../../img/${linkn}`
     )
     .then(src => card.src = src.default)
-    .catch(err => console.error(err));    
+    .catch(err => console.error(err));
+    card.hspace=10;    
     document.getElementById("dealer-cards").appendChild(card);
+    setInterval(1000);
     
    }
   }
@@ -120,6 +123,7 @@ const BlackJackPage = () => {
     )
     .then(src => card.src = src.default)
     .catch(err => console.error(err));
+    card.hspace=10;
     // card.src=test;
     console.log(hitAvailable);
     document.getElementById("your-cards").appendChild(card);
@@ -139,11 +143,18 @@ const BlackJackPage = () => {
         `../../img/${linkn}`
       )
       .then(src => card.src = src.default)
-      .catch(err => console.error(err));    
+      .catch(err => console.error(err));  
+      card.hspace=10;     
       document.getElementById("dealer-cards").appendChild(card);
       
      }
   });
+
+  function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
 
   
 };
