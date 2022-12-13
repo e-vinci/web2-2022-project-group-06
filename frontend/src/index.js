@@ -4,12 +4,16 @@ import './stylesheets/login.css';
 import './stylesheets/navbar.css';
 import './stylesheets/footer.css';
 import './stylesheets/blackjack.css';
-
+import './stylesheets/roulette.css';
+import './stylesheets/slotmachine.css';
 
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
+
 import Router from './Components/Router/Router';
+
 
 Navbar();
 Footer();
+
 Router();

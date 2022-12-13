@@ -53,6 +53,40 @@ const RegisterPage = () => {
 	`;
 };
 
+/* eslint-disable */
+
+async function register() {
+  
+	const registerBtn = document.getElementById('btn');
+  
+	registerBtn.addEventListener('click', async () => {
+	  const username = document.querySelector('#username').value;
+	  const password = document.querySelector('#password').value;
+	  const name = document.querySelector('#name').value;
+	  const firstname = document.querySelector('#firstname').value;
+	  const mail = document.querySelector('#mail').value;
+	  const yearBithday = document.querySelector('#yearBithday').value;
+	  const response = await fetch('/api/auths/register', {
+		method: 'POST',
+		body: JSON.stringify({
+		  username,
+		  password,
+		  name,
+		  firstname,
+		  mail,
+		  yearBithday,
+		}),
+		headers: {
+		  'Content-Type': 'application/json',
+		},
+	  });
+  
+	  if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+  
+	  window.location.reload();
+	});
+  }
+
 export default RegisterPage;
 
 import { getRememberMe, setAuthenticatedUser, setRememberMe } from '../../utils/auths';

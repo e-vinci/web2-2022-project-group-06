@@ -62,3 +62,13 @@
   .form-control-plaintext{
     color: #FFB835;
   }
+
+  footer {
+    background-color: black;
+  }
+
+  footer h5{
+    color: #FFB835;
+  }
+
+  
