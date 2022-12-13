@@ -1,4 +1,12 @@
+/* eslint-disable */
+
+
 import logo from "../../img/logo.png";
+import {clearPage} from "../../utils/render.js";
+import Navigate from "../Router/Navigate.js";
+import { setAuthenticatedUser } from "../../utils/auths.js";
+
+
 
 const LoginPage = () => {
     const main = document.querySelector('main');
@@ -36,8 +44,34 @@ const LoginPage = () => {
 			</div>
 		</div>
 	</div>
-	
 	`;
   };
+
+  async function login() {
+
+	const registerBtn = document.getElementById('btn');
+  
+	registerBtn.addEventListener('click', async () => {
+	  const username = document.querySelector('#username').value;
+	  const password = document.querySelector('#password').value;
+	  const response = await fetch('/api/auths/login', {
+		method: 'POST',
+		body: JSON.stringify({
+		  username,
+		  password,
+		}),
+		headers: {
+		  'Content-Type': 'application/json',
+		},
+	  });
+  
+	  if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+  
+	  window.location.reload();
+	});
+  }
+  
+  
+   
   
   export default LoginPage;
