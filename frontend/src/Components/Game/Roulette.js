@@ -77,5 +77,5 @@ function roll(color) {
   
 }
 
-export default {roll,history};
+export {roll};
 
