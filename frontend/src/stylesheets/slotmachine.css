@@ -1,0 +1,155 @@
+#result {
+  font-size: 30px;
+  color: black;
+}
+
+#result b {
+  font-size: 70px;
+  color: gold;
+}
+
+:root{
+    --col1: #2A3132;
+    --col2: #505160;
+    --border: orange;
+  }
+  
+  *{
+    box-sizing: border-box;
+  }
+  
+ .SlotMachine{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+
+  input[type="text"]{
+    border: 0px;
+    color: white;
+    font-size: 0.5em;
+    background: transparent;
+    border-bottom: 2px solid var(--border);
+    text-align: center;
+  }
+  
+  input[type="text"]:focus{
+    outline: none;
+  }
+  
+  green{
+    color: green;
+  }
+  
+  red{
+    color: red;
+  }
+  
+  #result{  
+    width: 100%;
+    font-size: 3em;
+    font-family: Montserrat,Arial;
+    background: var(--col1);
+    border-bottom: 3px solid var(--border);
+    padding: 0.5em;
+  }
+  
+  #container,#scores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid var(--border);
+    background: var(--col2);
+    color: white;
+    margin: 0.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  #itemContainer{
+    display: flex;
+    background: var(--col2);
+    margin: 0.5em;
+  }
+  
+  .itemSM{
+    font-size: 3em;
+    font-family: Montserrat;
+    padding: 1em;
+    margin: 1em;
+    background: white;
+    border: 3px solid var(--border);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  #spin {
+    width: 100%;
+    background: var(--col1);
+    border: none;
+    border-top: 3px solid var(--border);
+    font-size: 3em;
+    font-family: Montserrat,Arial;
+    padding: 0.5em;
+    cursor: pointer;
+    transition: background 0.4s;
+  }
+  
+  #spin:hover{
+    background: #102027;
+  }
+  
+  #spin,#result{
+    color: white;
+  }
+  
+  #spin:focus{
+    outline: 0;
+  }
+  
+  #scores{
+    font-family: Montserrat,Arial;
+    font-size: 2em;
+    align-items: center;
+    padding: 1em;
+  }
+  
+  #spinWon{
+    color: green;
+  }
+  
+  #spinLost{
+    color: red;
+  }
+  
+  #odds{
+    color: royalblue;
+  }
+  
+  #credits{
+    color: white;
+  }
+  
+  @media (max-width: 1000px){
+    #spin,.itemSM,#result{
+      font-size: 1.8em;
+    }
+    
+    #scores{
+      font-size: 1.1em;
+    }
+  }
+  
+  @media (max-width: 600px){
+    #spin,.itemSM,#result{
+      font-size: 1.8em;
+    }
+    
+    #scores{
+      font-size: 1.1em;
+    }
+  }
