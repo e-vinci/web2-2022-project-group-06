@@ -33,6 +33,7 @@ const BlackJackPage = () => {
           </ul>
         </div>  
       </div>
+      <div style="position: absolute; left:20px; top:15px; color:#9F9; font-size:large">Dealer's cards:</div>
       <div id="dealer-cards"></div> 
       <div id="your-cards"></div> 
   </div> 
@@ -128,7 +129,20 @@ const BlackJackPage = () => {
 
   const standButton = document.getElementById("StandButton");
   standButton.addEventListener("click",function(){
-    checkStay();
+    const cardDealer = checkStay();
+    for (let index = 0; index < cardDealer.length; index++) {
+    
+      const card=document.createElement("img");
+      const linkn = cardDealer[index].getLink();
+      import(
+        /* webpackMode: "lazy-once" */
+        `../../img/${linkn}`
+      )
+      .then(src => card.src = src.default)
+      .catch(err => console.error(err));    
+      document.getElementById("dealer-cards").appendChild(card);
+      
+     }
   });
 
   

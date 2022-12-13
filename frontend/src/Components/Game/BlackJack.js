@@ -63,12 +63,12 @@ function startGame() {
 
 function hitACard() {
     if (hitAvailable==false) return;
-    console.log(deckParty.getDeck());
     const newCard = deckParty.cardOnTop();
     playerDeck.push(newCard);
-    console.log(hitAvailable);
-    if (verifyPlayerScore()>21) {
+    playerScore = verifyPlayerScore();
+    if (playerScore>21) {
         hitAvailable=false;
+        winner();
     }
     console.log(newCard);
     return newCard;
@@ -76,15 +76,34 @@ function hitACard() {
 
 function checkStay() {
     check=true;
-    
-    while ( dealerScore <17) {
-        dealerDeck.push(deckParty.cardOnTop());
+    const newCardDealer=[]
+    while ( dealerScore <17 && dealerScore<playerScore) {
+        const cardDealer = deckParty.cardOnTop()
+        dealerDeck.push(cardDealer);
+        newCardDealer.push(cardDealer);
         dealerScore=verifyDealerScore;
+    }
+    winner();
+    return newCardDealer;
+    
+}
 
+function winner() {
+    dealerScore = verifyDealerScore();
+    playerScore = verifyPlayerScore();
 
+    if (playerScore > 21 && dealerScore < 21) {
+        console.log("dealer won");
+    }
+    if (playerScore < 21 && dealerScore > 21) {
+        console.log("player won");
+    }
+    if (dealerScore >= playerScore) {
+        console.log("dealer won");
+    } else {
+        console.log("player won");
     }
 
-    
 }
 
 
@@ -106,7 +125,7 @@ function verifyPlayerScore() {
 function verifyDealerScore() {
     let score =0;
     let numberAS=0;
-    for (let index = 0; index < playerDeck.length; index+=1) {
+    for (let index = 0; index < dealerDeck.length; index+=1) {
         if(dealerDeck[index].getValue()==11) numberAS++;
         score += dealerDeck[index].getValue(); 
     }
