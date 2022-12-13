@@ -88,7 +88,7 @@ async function register() {
   }
 
 export default RegisterPage;
-
+/*
 import { getRememberMe, setAuthenticatedUser, setRememberMe } from '../../utils/auths';
 import { clearPage, renderPageTitle } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
@@ -219,3 +219,4 @@ async function onRegister(e) {
 }
 
 export default RegisterPage;
+*/
