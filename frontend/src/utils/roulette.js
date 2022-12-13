@@ -31,6 +31,10 @@ function roll(color) {
   var winc = 0;
   var bet = document.getElementById("bet").value;
   bet = parseInt(bet);
+  if(bet < 0){
+    document.getElementById("msg").innerHTML = "Bet too low!";
+    return;
+  }
   if (bet > bal) {
     document.getElementById("msg").innerHTML = "Bet too high!";
   } else {
