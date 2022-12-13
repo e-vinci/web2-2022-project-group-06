@@ -1,94 +1,81 @@
 /* eslint-disable */
 
-;(function(loader) {
-    document.addEventListener("DOMContentLoaded", loader[0], false);
-  })([function (eventLoadedPage) {
-    "use strict";
-  
-    function rand (min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-  
-    var wrap, colors;
-    // colors = ["red"]
-    var pallete = [
-        "r18", "b8", "r19", "g2", "r20", "r21", "b9", "r10",
-        "g3", "r11", "b4", "r12", "b5", "r13", "b6",
-        "r14", "g0", "r15", "b7", "r16", "g1", "r17"
-    ];
-  
-    var bets = {
-        "green": [2,3,0,1],
-        "red": [18, 19,20,21,10,11,12,13,14,15,16,17],
-        "black": [8,9,4,5,6,7,]
-    }
-  
-    var width = 80;
-  
-    wrap = document.querySelector('.roulette-container .wrap');
-  
-    function spin_promise (color, number) {
-        return new Promise((resolve, reject) => {
-            if (
-                (color === "green" || color === "g") && (number >= 0 && number <= 3) ||
-                (color === "black" || color === "b") && (number >= 4 && number <= 9) ||
-                (color === "red" || color === "r") && (number >= 10 && number <= 21) 
-            ) 
-            {
-                let index, pixels, circles, pixelsStart;
-  
-                color = color[0];
-                index = pallete.indexOf(color + "" + number);
-                pixels = width * (index + 1);
-                circles = 1760 * 15; //15 circles
-  
-                pixels -= 80;
-                pixels = rand(pixels + 2, pixels + 79);
-                pixelsStart = pixels;
-                pixels += circles;
-                pixels *= -1;
-  
-                wrap.style.backgroundPosition = ((pixels + (wrap.offsetWidth / 2)) + "") + "px";
-  
-                setTimeout(() => {
-                    wrap.style.transition = "none";
-                    let pos = (((pixels * -1) - circles) * -1) + (wrap.offsetWidth / 2);
-                    wrap.style.backgroundPosition = String(pos) + "px";
-                    setTimeout(() => {
-                        wrap.style.transition = "background-position 5s";
-                        resolve();
-                    }, 510);
-  
-                }, 5000 + 700);
-            }
-        });
-    }
-  
-    var i = 0;
-  
-    function play () {
-  
-        let color;
-        let r = rand(1, 1000);
-        if (1 <= r && r < 30) color = "green";
-        else if (30 <= r && r < 530) color = "red";
-        else if (530 <= r && r < 1000) color = "black";
-        let bet = bets[color][rand(0, bets[color].length)];
-        spin_promise(color, bet).then(()  => {
-            console.log("[Ended]");
-            let colorBeted = document.createElement("div");
-            colorBeted.setAttribute("class", "color-beted " + color[0]);
-            colorBeted.innerHTML = bet;
-            document.body.appendChild(colorBeted);
-  
-            setTimeout(function () {
-                console.log("[Start game]");
-                play();
-            }, 2500);
-        });
-    }
-  
-    play();
-  }]);
+var bal = '1000';
+var cols = [];
+var nums = [];
+var bets = [];
+var h = 1;
+const Bal = document.querySelector('bal');
+Bal.innerHTML = bal;
 
-  export default Roulette;
+function history() {
+  for (i = 0; i < h; i++) {
+    document.getElementById("a" + i).style = "background: " + cols[i] + ";";
+    document.getElementById("a" + i).innerHTML = nums[i];
+  }
+  h++;
+  if (h == 9) {
+    for (j = 0; j < h; j++) {
+      document.getElementById("a" + j).style = "";
+      document.getElementById("a" + j).innerHTML = "";
+      cols.length = 0
+      nums.length = 0
+    }
+    h = 1;
+  }
+}
+
+function roll(color) {
+
+  var a = bal;
+  var winc = 0;
+  var bet = document.getElementById("bet").value;
+  bet = parseInt(bet);
+  if (bet > bal) {
+    document.getElementById("msg").innerHTML = "Bet too high!";
+  } else {
+    var win = Math.floor((Math.random() * 29) + 0);
+    if (win > 4) {
+      var rollm = win * 40 - 40 * 4.2;
+      document.getElementById("roll").style = "margin-left: -" + rollm + "px ";
+    }
+    if (win < 4) {
+      var rollm = 180 - 40 * win -20;
+      document.getElementById("roll").style = "margin-left: " + rollm + "px ";
+    }
+    if (win == 4) {
+      var rollm = 0;
+      document.getElementById("roll").style = "margin-left: -" + rollm + "px ";
+    }
+    if (win % 2 != 2) {
+      winc = "red";
+    }
+    if (win % 2 != 1) {
+      winc = "black";
+    }
+    if (win == 0) {
+      winc = "green";
+    }
+    if (color == winc) {
+      if (color == "black" || color == "red") {
+        bal = bal + bet;
+        bets.push("<br><font style='color: green;'>+"+bet+"</font>");
+      } else {
+        bal = bal + bet * 14;
+        bets.push("<br><font style='color: green;'>+"+bet*14+"</font>");
+      }
+    } else {
+      bal -= bet;
+      bets.push("<br><font style='color: red;'>-"+bet+"</font>");
+    }
+    cols.push(winc);
+    nums.push(win);
+    history();
+    document.getElementById("bal").innerHTML = bal;
+    document.getElementById("stat").innerHTML = bets;
+  }
+  
+}
+
+export default {roll,history};
+
