@@ -1,6 +1,4 @@
 /* eslint-disable */
-import {history,roll} from "../Game/Roulette.js";
-
 
 const RoulettePage = () => {
   const main = document.querySelector('main');
@@ -58,17 +56,13 @@ const RoulettePage = () => {
     </div>
     <div class="ticker"></div>
     <input type="number" name="bet" id="bet" />
-    <button class="red" onClick="roll('red')">Red</button>
-    <button class="green" onClick="roll('green')">Green</button>
-    <button class="black" onClick="roll('black')">Black</button>
+    <button onClick="roll('red')">Red</button>
+    <button onClick="roll('green')">Green</button>
+    <button onClick="roll('black')">Black</button>
     </div>
     `;
-   
 
+   main.innerHTML = roulette;
 };
-
-
-
- 
 
 export default RoulettePage;
