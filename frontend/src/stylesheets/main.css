@@ -146,7 +146,7 @@ p {
 /* Menu HomePage */
 
 .backHome{
-  background-image: url('../img/background/background-home-2.jpg');
+  background-image: url('../img/background/background-home4.jpg');
   background-size: cover;
 }
 
@@ -266,6 +266,6 @@ p {
  /* Conctact Page */
 
  .backConctat{
-  background-image: url('../img/background/background-home-2.jpg');
+  background-image: url('../img/background/background-home.jpg');
   background-size: cover;
  }
