@@ -39,7 +39,7 @@ main.innerHTML = menu;
 
 /* eslint-disable */
 function rotate() {
-  var lastChild = $('.slider div:last-child').clone();
+  let lastChild = $('.slider div:last-child').clone();
   /*$('#test').html(lastChild)*/
   $('.slider div').removeClass('firstSlide')
   $('.slider div:last-child').remove();
