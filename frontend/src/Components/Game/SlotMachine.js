@@ -27,7 +27,7 @@ function checkResult(n1,n2,n3){
 }
 
 function checkResultOnlyFirstTwo(n1, n2, n3){
-  if(n1 === n2 && n1 !== n3) {
+  if((n1 === n2 && n1 !== n3) || n1 === n3 && n1 !== n2) {
     return true;
   }
   return false;
@@ -69,7 +69,7 @@ function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLost
       manageCredits(true);
     }
     if(success2){
-      result.innerHTML = "YOU <green>WON with only two</green>";
+      result.innerHTML = "YOU <green>WON with only two color</green>";
       totWonWith2 += 1;
       spinWon.innerHTML = totWonWith2;
       manageCreditsWin2(true);
