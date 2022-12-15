@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const path = require('node:path');
 const { parse, serialize } = require('../utils/json');
+const db = require('./db_conf');
+const STORE_NAME = 'chips';
 
 const jwtSecret = 'iloveCasino';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
@@ -17,7 +19,7 @@ const defaultUser=[
     name:'default',
     firstname:'default',
     mail:'default',
-    yearBithday:'default',
+    yearBirthday:'default',
     password:'default',
     isAdmin:0,
 
@@ -48,31 +50,36 @@ async function login(username,password){
 
 }
 
-async function register(username,name,firstname,mail,yearBithday,password){
+async function register(username,lastname,firstname,mail,yearBirthday,password){
     const userNameFound=readOneFromUserName(username);
     if(userNameFound) return undefined;
-    await createUser(username,password);
+    await createUser(username,lastname,firstname,mail,yearBirthday,password);
 
     const token = jwt.sign(
         { username }, 
         jwtSecret, 
         { expiresIn: lifetimeJwt }, 
       );
+    const chips = serialize(userNameFound.chips);
     
       const authenticatedUser = {
         username,
-        name,
+        lastname,
         firstname,
         mail,
-        yearBithday,
+        yearBirthday,
         token,
+        chips,
       };
+
+    localStorage.setItem(STORE_NAME, chips);
     
       return authenticatedUser;
 }
-async function createUser(username,name,firstname,mail,yearBithday,password){
-    const users=parse(jsonDbPath,defaultUser)
+async function createUser(username,lastname,firstname,mail,yearBirthday,password){
+    // const users=parse(jsonDbPath,defaultUser)
     const hashedPassword=await bcrypt.hash(password,saltRounds);
+    /*
     const newUser={
         id:getNextId(),
         username,
@@ -83,9 +90,12 @@ async function createUser(username,name,firstname,mail,yearBithday,password){
         password:hashedPassword,
         isAdmin:0
     }
-    users.push(newUser);
-    serialize(jsonDbPath,users)
-    return newUser;
+    */
+    const stmt = db.prepare('INSERT INTO MEMBERS(name, firstname, mail, yearBirthday password) VALUES (?, ?, ?, ?)');
+    const info = stmt.run(username, lastname, firstname, mail, yearBirthday, hashedPassword);
+    // users.push(newUser);
+    // serialize(jsonDbPath,users)
+    return info;
 
 }
 
@@ -99,11 +109,14 @@ function getNextId() {
   }
 
 function readOneFromUserName(username){
-    const users=parse(jsonDbPath,defaultUser);
-    const indexUserFound=users.findIndex((user)=>user.username===username);
+    // const users=parse(jsonDbPath,defaultUser);
+    // const indexUserFound=users.findIndex((user)=>user.username===username);
 
-    if(indexUserFound<0) return undefined;
-    return users[indexUserFound];
+    const stmt = db.prepare('SELECT * FROM MEMBERS WHERE username = ?');
+    const user = stmt.get(username);
+
+    if(user.id_user<0) return undefined;
+    return user;
 }
 
 module.exports={login,register,readOneFromUserName}

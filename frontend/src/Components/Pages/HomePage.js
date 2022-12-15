@@ -1,7 +1,7 @@
 /* eslint-disable */
-import image1 from './../../img/BlackJack.png';
-import image2 from './../../img/Machine.png';
-import image3 from './../../img/Roulette.png';
+import image1 from './../../img/MenuCarousel/BlackJackMenuImg.png';
+import image2 from './../../img/MenuCarousel/SlotMachineMenuImg.png';
+import image3 from './../../img/MenuCarousel/RouletteMenuImg.png';
 import jQuery from 'jquery';
 
 const Homepage = () => {

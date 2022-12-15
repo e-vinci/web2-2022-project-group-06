@@ -1,6 +1,5 @@
 /* eslint-disable */
 
-
 const RoulettePage = () => {
   const main = document.querySelector('main');
     const roulette = ` 
@@ -62,9 +61,8 @@ const RoulettePage = () => {
     <button onClick="roll('black')">Black</button>
     </div>
     `;
-    main.innerHTML = roulette;
+
+   main.innerHTML = roulette;
 };
-
-
 
 export default RoulettePage;

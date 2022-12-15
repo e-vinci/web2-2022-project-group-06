@@ -16,15 +16,12 @@
   color: white;
   font-weight: bold;
   font-size: 20px;
-  animation: blinker 1s linear infinite;
-
 }
 
 
 
 #bal::before {
   content: 'Bits:';
-  align-items: center;
 }
 
 .ticker {
