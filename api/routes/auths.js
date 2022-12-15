@@ -9,13 +9,16 @@ router.post('/login', async (req, res) => {
     const password = req?.body?.password?.length !== 0 ? req.body.password : undefined;
  if(!username || !password) return res.sendStatus(400)
   
- const user = await login(username,password);
- 
- if(!user) return res.sendStatus(401);
- 
- createCookieSessionData(req, user);
+ const authenticatedUser = await login(username,password);
 
-  return res.json({ username: user.username });
+ if(!authenticatedUser) return res.sendStatus(401);
+
+ // eslint-disable-next-line no-console
+ console.log(authenticatedUser);
+ 
+ createCookieSessionData(req, authenticatedUser);
+
+  return res.json(authenticatedUser);
 });
 
 router.post('/register', async (req, res) => {
@@ -30,8 +33,6 @@ router.post('/register', async (req, res) => {
 
  const authenticatedUser = await register(username,lastname,firstname,mail,yearBithday,password);
 
-  console.log('passage');
-
  if(!authenticatedUser) return  res.sendStatus(401);
 
  createCookieSessionData(req, authenticatedUser);
@@ -40,14 +41,9 @@ router.post('/register', async (req, res) => {
 });
 
 
-
-router.get('/logout', (req, res) => {
-    req.session = null;
-    return res.sendStatus(200);
-  });
-  
-  function createCookieSessionData(req, authenticatedUser) {
+function createCookieSessionData(req, authenticatedUser) {
     req.session.username = authenticatedUser.username;
     req.session.token = authenticatedUser.token;
-  }
+}
+
 module.exports = router;

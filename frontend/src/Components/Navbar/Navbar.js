@@ -1,9 +1,8 @@
-/* eslint-disable prefer-const */
-/* eslint-disable */
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
-import { getAuthenticatedUser, isAuthenticated } from '../../utils/auths';
+import {isAuthenticated } from '../../utils/auths';
 import logo from '../../img/logo.png';
+// import { options } from '../../../../api/routes/auths';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -17,7 +16,6 @@ const Navbar = () => {
 };
 
 function renderNavbar() {
-  const authenticatedUser = getAuthenticatedUser();
 
   const navbarNoLog = `
     <nav class="navbar navbar-expand-lg navbar-red navbar-dark">
@@ -97,6 +95,7 @@ function renderNavbar() {
     const navbarWrapper = document.querySelector('#navbarWrapper');
 
     navbarWrapper.innerHTML = isAuthenticated() ? navbarLog : navbarNoLog;
+
 }
 
 export default Navbar;
