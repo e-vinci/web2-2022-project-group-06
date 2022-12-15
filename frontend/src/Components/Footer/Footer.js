@@ -20,11 +20,11 @@ const Footer = () => {
         </div>
     
         <div class="col mb-3">
-            <h5>Section</h5>
+            <h5>Utils</h5>
             <ul class="nav flex-column">
             <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="#" data-uri="/">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="#" data-uri="/contact" class="nav-link p-0 text-muted">Contact</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Chips</a></li>
             </ul>
         </div>
 
@@ -33,10 +33,11 @@ const Footer = () => {
         </div>
     
         <div class="col mb-3">
-            <h5>Section</h5>
+            <h5>Games</h5>
             <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" data-uri="/contact" class="nav-link p-0 text-muted">Contact</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Chips purchase</a></li>
+            <li class="nav-item mb-2"><a href="#" data-uri="/blackJack" class="nav-link p-0 text-muted">BlackJack</a></li>
+            <li class="nav-item mb-2"><a href="#" data-uri="/roulette" class="nav-link p-0 text-muted">Roulette</a></li>
+            <li class="nav-item mb-2"><a href="#" data-uri="/slotMachine" class="nav-link p-0 text-muted">SlotMachine</a></li>
             </ul>
         </div>
         </footer>

@@ -17,11 +17,17 @@
   font-weight: bold;
   font-size: 20px;
 }
-
+ #bal{
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  
+ }
 
 
 #bal::before {
   content: 'Bits:';
+  ;
 }
 
 .ticker {
@@ -69,7 +75,7 @@
   float: left;
 }
 
-#bal,
+
 #stat {
   float: right;
   color: #fff;
@@ -78,6 +84,7 @@
 #stat {
   width: 100px;
   height: 300px;
+  margin: 0 auto;
   margin-bottom: -300px;
 }
 
@@ -94,13 +101,13 @@
 }
 
 #his {
-  width: 370px;
+  width: 360px;
   height: 40px;
   margin: 0 auto;
 }
 
 .his-h {
-  margin-left: 10px;
+  margin-left: 5px;
   border-radius: 50%;
 }
 
@@ -111,5 +118,10 @@
 
 .title b {
   font-size: 70px;
-  color: gold;
+  color: #FFB835;
 }
+
+
+
+
+
