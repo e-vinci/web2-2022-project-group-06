@@ -5,16 +5,16 @@ var cols = [];
 var nums = [];
 var bets = [];
 var h = 1;
-const Bal = document.querySelector('bal');
-Bal.innerHTML = bal;
 
 function history() {
+  var i;
   for (i = 0; i < h; i++) {
     document.getElementById("a" + i).style = "background: " + cols[i] + ";";
     document.getElementById("a" + i).innerHTML = nums[i];
   }
   h++;
   if (h == 9) {
+    var j;
     for (j = 0; j < h; j++) {
       document.getElementById("a" + j).style = "";
       document.getElementById("a" + j).innerHTML = "";
@@ -31,6 +31,10 @@ function roll(color) {
   var winc = 0;
   var bet = document.getElementById("bet").value;
   bet = parseInt(bet);
+  if(bet < 0){
+    document.getElementById("msg").innerHTML = "Bet too low!";
+    return;
+  }
   if (bet > bal) {
     document.getElementById("msg").innerHTML = "Bet too high!";
   } else {
@@ -64,18 +68,16 @@ function roll(color) {
         bal = bal + bet * 14;
         bets.push("<br><font style='color: green;'>+"+bet*14+"</font>");
       }
-    } else {
       bal -= bet;
       bets.push("<br><font style='color: red;'>-"+bet+"</font>");
-    }
+  }
     cols.push(winc);
     nums.push(win);
     history();
     document.getElementById("bal").innerHTML = bal;
     document.getElementById("stat").innerHTML = bets;
   }
-  
 }
 
-export {roll};
+export {roll,history,bal};
 
