@@ -1,6 +1,7 @@
 const ProfilPage = () => {
   const main = document.querySelector('main');
-  main.innerHTML = `<div class="page-content page-container" id="page-content">
+  main.innerHTML = `
+  <div class="page-content page-container" id="page-content">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-6 col-md-12">
@@ -36,7 +37,8 @@ const ProfilPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>`;
+                </div>
+                `;
 };
 
 export default ProfilPage;

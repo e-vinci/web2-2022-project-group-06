@@ -11,7 +11,6 @@ import { setAuthenticatedUser } from "../../utils/auths.js";
 const LoginPage = () => {
     const main = document.querySelector('main');
     main.innerHTML = `
-	
 	<div class="container-fluid">
 		<div class="row main-content bg-success text-center">
 			<div class="col-md-4 text-center font-logo">
