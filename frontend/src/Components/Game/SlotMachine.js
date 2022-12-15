@@ -26,8 +26,8 @@ function checkResult(n1,n2,n3){
   return false;
 }
 
-function checkResultOnlyTwo(n1, n2, n3){
-  if((n1 === n2 && n1 !== n3) || (n1 === n3 && n1 !== n2) || (n2 === n3 && n2 !== n1)){
+function checkResultOnlyFirstTwo(n1, n2, n3){
+  if(n1 === n2 && n1 !== n3) {
     return true;
   }
   return false;
@@ -61,7 +61,7 @@ function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLost
     figure3.style.background = colors[n3];
 
     const success = checkResult(n1,n2,n3);
-    const success2 = checkResultOnlyTwo(n1,n2,n3);
+    const success2 = checkResultOnlyFirstTwo(n1,n2,n3);
     if(success){
       result.innerHTML = "YOU <green>WON</green>";
       totWon +=1;
