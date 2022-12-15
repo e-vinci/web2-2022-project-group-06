@@ -210,22 +210,6 @@ const BlackJackPage = () => {
       card.hspace=10;     
       document.getElementById("dealer-cards").appendChild(card);
      }
-     
-     // REVEAL HIDDEN DEALER CARD
-
-     const hiddencard=document.createElement("img");
-      const linkhiddencard = dealerDeck[0].getLink();
-      import(
-        /* webpackMode: "lazy-once" */
-        `../../img/${linkhiddencard}`
-      )
-      .then(src => hiddencard.src = src.default)
-      .catch(err => console.error(err));
-      hiddencard.hspace=10;  
-      const element = document.getElementById("dealer-cards");
-      element.replaceChild(hiddencard, element.childNodes[0]);
-      standButton.disabled=true;
-      hitButton.disabled=true;
 
       if (whothewinner !=null) {
         winner();
@@ -236,6 +220,21 @@ const BlackJackPage = () => {
   // GET WINNER
 
   function winner() {
+    // REVEAL HIDDEN DEALER CARD
+
+    const hiddencard=document.createElement("img");
+    const linkhiddencard = dealerDeck[0].getLink();
+    import(
+      /* webpackMode: "lazy-once" */
+      `../../img/${linkhiddencard}`
+    )
+    .then(src => hiddencard.src = src.default)
+    .catch(err => console.error(err));
+    hiddencard.hspace=10;  
+    const element = document.getElementById("dealer-cards");
+    element.replaceChild(hiddencard, element.childNodes[0]);
+
+
     standButton.disabled=true;
     hitButton.disabled=true;
     document.getElementById("NewGame").hidden=false;
