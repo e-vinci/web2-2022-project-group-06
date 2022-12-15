@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const path = require('node:path');
 const { parse, serialize } = require('../utils/json');
 const db = require('./db_conf');
-const STORE_NAME = 'chips';
 
 const jwtSecret = 'iloveCasino';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
@@ -60,7 +59,6 @@ async function register(username,lastname,firstname,mail,yearBirthday,password){
         jwtSecret, 
         { expiresIn: lifetimeJwt }, 
       );
-    const chips = serialize(userNameFound.chips);
     
       const authenticatedUser = {
         username,
@@ -69,13 +67,12 @@ async function register(username,lastname,firstname,mail,yearBirthday,password){
         mail,
         yearBirthday,
         token,
-        chips,
+        chips: 0,
       };
-
-    localStorage.setItem(STORE_NAME, chips);
     
       return authenticatedUser;
 }
+
 async function createUser(username,lastname,firstname,mail,yearBirthday,password){
     // const users=parse(jsonDbPath,defaultUser)
     const hashedPassword=await bcrypt.hash(password,saltRounds);
@@ -91,12 +88,11 @@ async function createUser(username,lastname,firstname,mail,yearBirthday,password
         isAdmin:0
     }
     */
-    const stmt = db.prepare('INSERT INTO MEMBERS(name, firstname, mail, yearBirthday password) VALUES (?, ?, ?, ?)');
+    const stmt = db.prepare('INSERT INTO MEMBERS(username, lastname, firstname, mail, yearBirthday, password) VALUES (?, ?, ?, ?, ?, ?)');
     const info = stmt.run(username, lastname, firstname, mail, yearBirthday, hashedPassword);
     // users.push(newUser);
     // serialize(jsonDbPath,users)
     return info;
-
 }
 
 function getNextId() {
