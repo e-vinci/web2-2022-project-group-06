@@ -29,6 +29,7 @@ const SlotMachinePage = () => {
   
    </div>`;
 
+
 };
 
 

@@ -6,6 +6,7 @@ import ProfilPage from '../Pages/ProfilPage';
 import ContactPage from '../Pages/ContactPage';
 import RoulettePage  from '../Pages/RoulettePage'
 import SlotMachinePage from '../Pages/SlotMachinePage';
+import PurchaseChipsPage from '../Pages/PurchaseChipsPage';
 
 const routes = {
   '/': HomePage,
@@ -16,6 +17,7 @@ const routes = {
   '/profil':ProfilPage,
   '/contact': ContactPage,
   '/slotMachine': SlotMachinePage,
+  '/purchaseChips': PurchaseChipsPage,
 };
 
 export default routes;
