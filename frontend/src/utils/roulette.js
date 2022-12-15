@@ -8,7 +8,7 @@ var h = 1;
 const Bal = document.querySelector('bal');
 Bal.innerHTML = bal;
 
-function history() {
+function histories() {
   for (i = 0; i < h; i++) {
     document.getElementById("a" + i).style = "background: " + cols[i] + ";";
     document.getElementById("a" + i).innerHTML = nums[i];
@@ -74,7 +74,7 @@ function roll(color) {
     }
     cols.push(winc);
     nums.push(win);
-    history();
+    histories();
     document.getElementById("bal").innerHTML = bal;
     document.getElementById("stat").innerHTML = bets;
   }

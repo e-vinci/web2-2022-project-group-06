@@ -50,7 +50,7 @@ async function login(username,password){
 }
 
 async function register(username,lastname,firstname,mail,yearBirthday,password){
-    const userNameFound=readOneFromUserName(username);
+    const userNameFound = readOneFromUserName(username);
     if(userNameFound) return undefined;
     await createUser(username,lastname,firstname,mail,yearBirthday,password);
 
@@ -88,7 +88,7 @@ async function createUser(username,lastname,firstname,mail,yearBirthday,password
         isAdmin:0
     }
     */
-    const stmt = db.prepare('INSERT INTO MEMBERS(username, lastname, firstname, mail, yearBirthday, password) VALUES (?, ?, ?, ?, ?, ?)');
+    const stmt = db.prepare('INSERT INTO user(username, last_name, first_name, mail, year_birth, password) VALUES (?, ?, ?, ?, ?, ?)');
     const info = stmt.run(username, lastname, firstname, mail, yearBirthday, hashedPassword);
     // users.push(newUser);
     // serialize(jsonDbPath,users)
@@ -108,10 +108,9 @@ function readOneFromUserName(username){
     // const users=parse(jsonDbPath,defaultUser);
     // const indexUserFound=users.findIndex((user)=>user.username===username);
 
-    const stmt = db.prepare('SELECT * FROM MEMBERS WHERE username = ?');
+    const stmt = db.prepare('SELECT * FROM user WHERE username = ?');
     const user = stmt.get(username);
 
-    if(user.id_user<0) return undefined;
     return user;
 }
 

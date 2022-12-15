@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3000/auth
+@baseUrl = http://localhost:3000/auths
  ####
 POST {{baseUrl}}/login
  Content-Type: application/json 
@@ -22,7 +22,7 @@ POST {{baseUrl}}/register
 
  {
     "username":"userTest",
-    "name":"Test",
+    "lastname":"Test",
     "firstname":"User",
     "mail":"UserTest@mail.com",
     "yearBithday":"2002",

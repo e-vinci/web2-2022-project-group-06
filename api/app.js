@@ -4,7 +4,7 @@ const logger = require('morgan');
 const cookieSession = require('cookie-session');
 
 const usersRouter = require('./routes/users');
-const authRouter=require('./routes/auths');
+const authRouter = require('./routes/auths');
 
 const app = express();
 const expiryDateIn3Months = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30 * 3);
@@ -25,6 +25,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/users', usersRouter);
-app.use('/auth',authRouter);
+app.use('/auths',authRouter);
 
 module.exports = app;
