@@ -1,4 +1,4 @@
-import GamePage from '../Pages/BlackJackPage';
+import BlackJackPage from '../Pages/BlackJackPage';
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import Logout from '../Logout/Logout';
@@ -10,7 +10,7 @@ import SlotMachinePage from '../Pages/SlotMachinePage';
 
 const routes = {
   '/': HomePage,
-  '/blackJack': GamePage,
+  '/blackJack': BlackJackPage,
   '/roulette':RoulettePage,
   '/login': LoginPage,
   '/logout': Logout,

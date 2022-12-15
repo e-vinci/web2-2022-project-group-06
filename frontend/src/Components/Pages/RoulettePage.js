@@ -1,4 +1,6 @@
 /* eslint-disable */
+import{roll,historyRoll,bal} from '../Game/Roulette.js'; 
+
 
 const RoulettePage = () => {
   const main = document.querySelector('main');
@@ -56,13 +58,39 @@ const RoulettePage = () => {
     </div>
     <div class="ticker"></div>
     <input type="number" name="bet" id="bet" />
-    <button onClick="roll('red')">Red</button>
-    <button onClick="roll('green')">Green</button>
-    <button onClick="roll('black')">Black</button>
+    <button id="ButtonRed">Red</button>
+    <button id="ButtonGreen">Green</button>
+    <button id="ButtonBlack">Black</button>
     </div>
     `;
+  
+    main.innerHTML = roulette;
 
-   main.innerHTML = roulette;
+const buttonRed = document.getElementById('ButtonRed');
+buttonRed.addEventListener('click', () => {
+  roll('red');
+});
+
+const buttonGreen = document.getElementById('ButtonGreen');
+buttonGreen.addEventListener('click', () => {
+  roll('green');
+});
+
+const buttonBlack = document.getElementById('ButtonBlack');
+buttonBlack.addEventListener('click', () => {
+  roll('black');
+});
+
+const his = document.getElementById('his');
+his.addEventListener('click', () => {
+  historyRoll();
+});
+
+const Valeurbal = document.getElementById('bal');
+Valeurbal.innerHTML = bal; 
+
+
+
 };
 
 export default RoulettePage;

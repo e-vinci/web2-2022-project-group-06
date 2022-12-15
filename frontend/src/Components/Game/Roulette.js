@@ -1,20 +1,20 @@
 /* eslint-disable */
 
-var bal = '1000';
-var cols = [];
-var nums = [];
-var bets = [];
-var h = 1;
-const Bal = document.querySelector('bal');
-Bal.innerHTML = bal;
+let bal = '1000';
+let cols = [];
+let nums = [];
+let bets = [];
+let h = 1;
 
-function histories() {
+function historyRoll() {
+  let i;
   for (i = 0; i < h; i++) {
     document.getElementById("a" + i).style = "background: " + cols[i] + ";";
     document.getElementById("a" + i).innerHTML = nums[i];
   }
   h++;
   if (h == 9) {
+    let j;
     for (j = 0; j < h; j++) {
       document.getElementById("a" + j).style = "";
       document.getElementById("a" + j).innerHTML = "";
@@ -24,6 +24,7 @@ function histories() {
     h = 1;
   }
 }
+
 
 function roll(color) {
 
@@ -70,12 +71,11 @@ function roll(color) {
     }
     cols.push(winc);
     nums.push(win);
-    histories();
+    historyRoll();
     document.getElementById("bal").innerHTML = bal;
     document.getElementById("stat").innerHTML = bets;
   }
-  
 }
 
-export {roll};
+export {roll,historyRoll,bal};
 
