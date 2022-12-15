@@ -1,5 +1,5 @@
 /* eslint-disable */
-import{roll,history,bal} from '../Game/Roulette.js'; 
+import{roll,historyRoll,bal} from '../Game/Roulette.js'; 
 
 
 const RoulettePage = () => {
@@ -83,7 +83,7 @@ buttonBlack.addEventListener('click', () => {
 
 const his = document.getElementById('his');
 his.addEventListener('click', () => {
-  history();
+  historyRoll();
 });
 
 const Valeurbal = document.getElementById('bal');
