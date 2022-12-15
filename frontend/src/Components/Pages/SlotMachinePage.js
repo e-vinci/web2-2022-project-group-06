@@ -24,6 +24,7 @@ const SlotMachinePage = () => {
   <div id="scores" class="animated bounceIn">
     <h1 >Won: <value id="spinWon">0<value></h1>
     <h1 >Lost: <value id="spinLost">0<value></h1>
+    <h1 > Chips Won: <value id="chipsWon">0<value></h1>
   </div>
   
    </div>`;
@@ -36,10 +37,11 @@ const SlotMachinePage = () => {
   const spinWon = document.getElementById("spinWon");
   const spinLost = document.getElementById("spinLost");
   const textCredits = document.getElementById("textCredits");
+  const chipsWon = document.getElementById("chipsWon");
 
   spin1.addEventListener("click", () => {
     const chips = document.getElementById("credits").value;
-    spin(chips, figure1,figure2, figure3, result, spinWon, spinLost, textCredits);
+    spin(chips, figure1,figure2, figure3, result, spinWon, spinLost, textCredits, chipsWon);
   });
 
 

@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 let totWon = 0;
 let totLost = 0;
 let totWonWith2 = 0;
@@ -13,6 +13,8 @@ let result = null;
 let spinWon = false;
 let spinLost = false;
 let textCredits = null;
+let chipsWon = null;
+let bet = [];
 
 function generateRandom(){
   const  rnd = Math.floor(Math.random()*colors.length);
@@ -33,7 +35,7 @@ function checkResultOnlyFirstTwo(n1, n2, n3){
   return false;
 }
 
-function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLosts, textCredit){
+function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLosts, textCredit, chipsWons){
   credits =  chips;
   figure1 = figureN1;
   figure2 = figureN2;
@@ -42,6 +44,7 @@ function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLost
   spinWon = spinWons;
   spinLost = spinLosts;
   textCredits = textCredit;
+  chipsWon = chipsWons;
 
   if(credits > 0 && credits <= totCredits){
     const n1 = generateRandom();
@@ -65,20 +68,30 @@ function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLost
     if(success){
       result.innerHTML = "YOU <green>WON</green>";
       totWon +=1;
+      bet.push("<br><font style='color: green;'>+"+credits*4+"</font>");
+      chipsWon.innerHTML = bet;
       spinWon.innerHTML = totWon;
       manageCredits(true);
+      bet.pop();
     }
     if(success2){
+      
       result.innerHTML = "YOU <green>WON with only two color</green>";
       totWonWith2 += 1;
+      bet.push("<br><font style='color: green;'>+"+credits*(3/2)+"</font>");
+      chipsWon.innerHTML = bet;
       spinWon.innerHTML = totWonWith2;
       manageCreditsWin2(true);
+      bet.pop();
     }
     if(!success && !success2){
       result.innerHTML = "YOU <red>LOST<red>";
       totLost +=1;
       spinLost.innerHTML = totLost;
+      bet.push("<br><font style='color: red;'>-"+credits+"</font>");
+      chipsWon.innerHTML = bet;
       manageCredits(false);
+      bet.pop();
     }
 
 
@@ -94,7 +107,7 @@ function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLost
 
 function manageCredits(x){
   if(x){
-    totCredits += credits*8;
+    totCredits += credits*4;
     textCredits.innerHTML = totCredits;
   }
   else{
@@ -105,7 +118,7 @@ function manageCredits(x){
 
 function manageCreditsWin2(x){
   if(x){
-    totCredits += credits*4;
+    totCredits += credits*(3/2);
     textCredits.innerHTML = totCredits;
   }
   else{
