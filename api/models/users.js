@@ -27,10 +27,10 @@ const defaultUser=[
 ];
 
 async function login(username,password){
-    const userNameFound=readOneFromUserName(username);
+    const userNameFound = readOneFromUserName(username);
     if(!userNameFound) return undefined;
    
-    const comparatorPassword= await bcrypt.compare(password,userNameFound.password)
+    const comparatorPassword = await bcrypt.compare(password,userNameFound.password)
 
     if(!comparatorPassword) return undefined;
   
@@ -42,6 +42,8 @@ async function login(username,password){
     
       const authenticatedUser = {
         username:userNameFound.username,
+        mail: userNameFound.mail,
+        chips: userNameFound.chips,
         token,
       };
    
@@ -62,12 +64,9 @@ async function register(username,lastname,firstname,mail,yearBirthday,password){
     
       const authenticatedUser = {
         username,
-        lastname,
-        firstname,
         mail,
-        yearBirthday,
-        token,
         chips: 0,
+        token,
       };
     
       return authenticatedUser;

@@ -9,7 +9,8 @@ router.post('/login', async (req, res) => {
     const password = req?.body?.password?.length !== 0 ? req.body.password : undefined;
  if(!username || !password) return res.sendStatus(400)
   
- const user= await login(username,password);
+ const user = await login(username,password);
+ 
  if(!user) return res.sendStatus(401);
  
  createCookieSessionData(req, user);
@@ -28,6 +29,8 @@ router.post('/register', async (req, res) => {
  if(!username || !lastname|| !firstname|| !mail|| !yearBithday|| !password) return res.sendStatus(400)
 
  const authenticatedUser = await register(username,lastname,firstname,mail,yearBithday,password);
+
+  console.log('passage');
 
  if(!authenticatedUser) return  res.sendStatus(401);
 

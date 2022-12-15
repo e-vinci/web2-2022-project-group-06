@@ -1,9 +1,8 @@
 import { getRememberMe, setAuthenticatedUser, setRememberMe } from '../../utils/auths';
 import { clearPage, renderPageTitle } from '../../utils/render';
-import Navbar from '../Navbar/Navbar';
+// import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 import logo from '../../img/logo.png';
-// import { register } from '../../../../api/models/users';
 
 const RegisterPage = () => {
   clearPage();
@@ -168,14 +167,11 @@ async function onRegister(e) {
 
   const authenticatedUser = await response.json();
 
-  // eslint-disable-next-line no-console
-  console.log('Newly registered & authenticated user : ', authenticatedUser);
-
   setAuthenticatedUser(authenticatedUser);
 
-  Navbar();
 
   Navigate('/');
+
 }
 
 export default RegisterPage;
