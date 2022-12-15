@@ -1,34 +1,52 @@
-/* eslint-disable */
-var figure1 = document.getElementById("figure1");
-var figure2 = document.getElementById("figure2");
-var figure3 = document.getElementById("figure3");
-var result =  document.getElementById("result");
-var spinWon =  document.getElementById("spinWon");
-var spinLost =  document.getElementById("spinLost");
-var oddsText =  document.getElementById("odds");
-var textCredits =  document.getElementById("textCredits");
-var totWon = 0,totLost = 0 ,totWonWith2 = 0; totCredits = 1000;
-colors = ["royalblue","red","green"];
+
+let totWon = 0;
+let totLost = 0;
+let totWonWith2 = 0;
+let totCredits = 1000;
+const colors = ["royalblue","red","green", "gold", "purple"];
+
+let credits =  0;
+let figure1 = null;
+let figure2 = null;
+let figure3 = null;
+let result = null;
+let spinWon = false;
+let spinLost = false;
+let textCredits = null;
 
 function generateRandom(){
-  var  rnd = Math.floor(Math.random()*colors.length);
+  const  rnd = Math.floor(Math.random()*colors.length);
   return rnd;
 }
 
 function checkResult(n1,n2,n3){
-  return (n1 == n2 && n2 == n3) ? true : false;
+  if(n1 === n2 && n2 === n3){
+    return true;
+  }
+  return false;
 }
 
 function checkResultOnlyTwo(n1, n2, n3){
-  return((n1 == n2 && n1 !== n3) || (n1 == n3 && n1 !== n2) || (n2 == n3 && n2 !== n1)) ? true : false;
+  if((n1 === n2 && n1 !== n3) || (n1 === n3 && n1 !== n2) || (n2 === n3 && n2 !== n1)){
+    return true;
+  }
+  return false;
 }
 
-function spin(){
-  var credits =  document.getElementById("credits").value;
+function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLosts, textCredit){
+  credits =  chips;
+  figure1 = figureN1;
+  figure2 = figureN2;
+  figure3 = figureN3;
+  result = results;
+  spinWon = spinWons;
+  spinLost = spinLosts;
+  textCredits = textCredit;
+
   if(credits > 0 && credits <= totCredits){
-    var n1 = generateRandom();
-    var n2 = generateRandom();
-    var n3 = generateRandom();
+    const n1 = generateRandom();
+    const n2 = generateRandom();
+    const n3 = generateRandom();
 
     figure1.classList.add("animated","bounceIn");
     figure2.classList.add("animated","bounceIn");
@@ -42,29 +60,27 @@ function spin(){
     figure2.style.background = colors[n2];
     figure3.style.background = colors[n3];
 
-    var success = checkResult(n1,n2,n3);
-    var success2 = checkResultOnlyTwo(n1,n2,n3);
+    const success = checkResult(n1,n2,n3);
+    const success2 = checkResultOnlyTwo(n1,n2,n3);
     if(success){
       result.innerHTML = "YOU <green>WON</green>";
-      totWon++;
+      totWon +=1;
       spinWon.innerHTML = totWon;
       manageCredits(true);
     }
     if(success2){
       result.innerHTML = "YOU <green>WON with only two</green>";
-      totWonWith2++;
-      spinWon.innerHTML = totWonWith2
+      totWonWith2 += 1;
+      spinWon.innerHTML = totWonWith2;
       manageCreditsWin2(true);
     }
-    else{
+    if(!success && !success2){
       result.innerHTML = "YOU <red>LOST<red>";
-      totLost++;
+      totLost +=1;
       spinLost.innerHTML = totLost;
       manageCredits(false);
     }
 
-    odds = Math.floor((totWon/(totWon+totLost))*100);
-    oddsText.innerHTML = odds+"%";
 
     setTimeout(()=>{
       figure1.classList.remove("animated","bounceIn");
@@ -77,7 +93,6 @@ function spin(){
 }
 
 function manageCredits(x){
-  var credits =  document.getElementById("credits").value;
   if(x){
     totCredits += credits*8;
     textCredits.innerHTML = totCredits;
@@ -89,7 +104,6 @@ function manageCredits(x){
 }
 
 function manageCreditsWin2(x){
-  var credits =  document.getElementById("credits").value;
   if(x){
     totCredits += credits*4;
     textCredits.innerHTML = totCredits;
@@ -100,4 +114,4 @@ function manageCreditsWin2(x){
   }
 }
 
-export default {spin , manageCredits , manageCreditsWin2, checkResult, checkResultOnlyTwo , generateRandom}
+export default spin;
