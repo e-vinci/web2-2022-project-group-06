@@ -6,6 +6,7 @@ import './stylesheets/footer.css';
 import './stylesheets/blackjack.css';
 import './stylesheets/roulette.css';
 import './stylesheets/slotmachine.css';
+import './stylesheets/leaderboard.css';
 
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';

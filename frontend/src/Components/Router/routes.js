@@ -7,6 +7,8 @@ import ProfilPage from '../Pages/ProfilPage';
 import ContactPage from '../Pages/ContactPage';
 import RoulettePage  from '../Pages/RoulettePage'
 import SlotMachinePage from '../Pages/SlotMachinePage';
+/* eslint-disable */
+import LeaderboardPage from '../Pages/LeaderboardPage';
 
 const routes = {
   '/': HomePage,
@@ -18,6 +20,7 @@ const routes = {
   '/profil':ProfilPage,
   '/contact': ContactPage,
   '/slotMachine': SlotMachinePage,
+  '/leaderboard': LeaderboardPage,
 };
 
 export default routes;
