@@ -54,7 +54,7 @@ async function register(username,lastname,firstname,mail,yearBirthday,password){
         firstname,
         yearBirthday,
         mail,
-        chips: 0,
+        chips: 1000,
         token,
       };
     
@@ -78,4 +78,17 @@ function readOneFromUserName(username){
     return user;
 }
 
-module.exports={login,register,readOneFromUserName}
+function getChips(username){
+    const stmt = db.prepare('SELECT chips FROM user WHERE username = ?');
+    const chips = stmt.get(username);
+
+    return chips;
+}
+
+function leaderboard(){
+     const stmt = db.prepare('SELECT * FROM user ORDER BY chips DESC');
+     const leader = stmt.all();
+     return leader;
+}
+
+module.exports={login,register,readOneFromUserName,getChips,leaderboard}

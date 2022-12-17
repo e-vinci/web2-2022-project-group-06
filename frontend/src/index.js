@@ -16,5 +16,4 @@ import Router from './Components/Router/Router';
 
 Navbar();
 Footer();
-
 Router();
