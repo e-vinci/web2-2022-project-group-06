@@ -258,7 +258,32 @@ const BlackJackPage = () => {
 
   const newGame = document.getElementById("NewGameButton");
   newGame.addEventListener("click",function() {
-    window.location.reload();
+
+    var element = document.getElementById("your-cards");
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+
+    var element = document.getElementById("dealer-cards");
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+
+    var element = document.getElementById("textEnd");
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+
+    document.getElementById("gameButton").hidden=true;
+    document.getElementById("dealer-script").hidden=true;
+    document.getElementById("player-script").hidden=true;
+
+    standButton.disabled=false;
+    hitButton.disabled=false;
+
+    document.getElementById("bet").hidden=false;
+    document.getElementById("NewGame").hidden=true;
+    
   });
 
   const doubleButton = document.getElementById("DoubleButton");

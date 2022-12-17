@@ -1,21 +1,25 @@
-
 /* eslint-disable */
 import Deck from './Deck';
 
-let check = false;
-var hitAvailable = true;
-var playerScore=0;
-var dealerScore=0;
-var whothewinner=null;
-var amountChips =150;
-
-const dealerDeck = [];
-const playerDeck = [];
-const deckParty = new Deck();
-deckParty.createDeck();
-deckParty.shuffle();
+let playerScore;
+let dealerScore;
+let whothewinner;
+let amountChips =150;
+let dealerDeck = [];
+let playerDeck = [];
+let deckParty = new Deck();
 
 function setBet(bet) {
+
+    dealerDeck = [];
+    playerDeck = [];
+ 
+    deckParty = new Deck();
+    deckParty.createDeck();
+    deckParty.shuffle();
+    playerScore=0;
+    dealerScore=0;
+    whothewinner=null;
     startGame();
     
 }
@@ -23,8 +27,6 @@ function setBet(bet) {
 
 
 function startGame() {
-
-    check = false;
 
     const c = deckParty.cardOnTop();
     playerDeck.push(c);
@@ -39,27 +41,21 @@ function startGame() {
 
 
 function hitACard() {
-    if (hitAvailable==false) return;
     const newCard = deckParty.cardOnTop();
     playerDeck.push(newCard);
     playerScore = verifyPlayerScore();
     if (playerScore>21) {
-        hitAvailable=false;
         winner();
     }
-    console.log(newCard);
     return newCard;
 }
 
 function checkStay() {
-    check=true;
     playerScore=verifyPlayerScore();
     dealerScore=verifyDealerScore();
     while ( dealerScore <17 && dealerScore<=playerScore) {
         const cardDealer = deckParty.cardOnTop()
         dealerDeck.push(cardDealer);
-        console.log("passage1");
-        console.log(dealerScore);
         dealerScore=verifyDealerScore();
     }
     winner();    
@@ -70,19 +66,14 @@ function winner() {
     playerScore = verifyPlayerScore();
 
     if (playerScore > 21 && dealerScore <= 21) {
-        console.log("dealer won");
         whothewinner=1;
     } else if (playerScore <= 21 && dealerScore > 21) {
-        console.log("player won");
         whothewinner=2;
     } else if (dealerScore == playerScore) {
-        console.log("draw no winner");
         whothewinner=3;
     } else if (dealerScore > playerScore) {
-        console.log("dealer won");
         whothewinner=1;
     } else {
-        console.log("player won");
         whothewinner=2;
     }
 }
@@ -99,7 +90,6 @@ function verifyPlayerScore() {
         if (score >21) score=score-10;
         
     }
-    console.log(score);
     return score;
 }
 
@@ -111,8 +101,7 @@ function verifyDealerScore() {
         score += dealerDeck[index].getValue(); 
     }
     for (let index = 0; index < numberAS; index++) {
-        if (score >21) score-10;
-        
+        if (score >21) score=score-10;
     }
     return score;
 }
