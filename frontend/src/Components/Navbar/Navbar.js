@@ -21,7 +21,7 @@ function renderNavbar() {
     <nav class="navbar navbar-expand-lg navbar-red navbar-dark">
       <div class="wrapper"></div>
       <div class="container-fluid all-show">
-        <a class="nav-link" aria-current="page" href="/" data-uri="/"><img class="logoImg" src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
+        <a class="nav-link" aria-current="page" href="#" data-uri="/"><img class="logoImg" src="${logo}" width = "60" heigth = "35" atl ="logo" ></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
   
@@ -45,7 +45,7 @@ function renderNavbar() {
           </li>
 
           <li class="nav-item-Log">
-            <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/login">Login</a>
+            <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/login">Login</a></button>
           </li>
         </ul>
       </div>
@@ -57,7 +57,7 @@ function renderNavbar() {
     <nav class="navbar navbar-expand-lg navbar-red navbar-dark">
       <div class="wrapper"></div>
       <div class="container-fluid all-show">
-        <a class="nav-item" aria-current="page" href="/" data-uri="/">
+        <a class="nav-item nav-link" aria-current="page" href="#" data-uri="/">
           <img class="logoImg" src="${logo}" width = "60" heigth = "35" atl ="logo" >
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
