@@ -78,4 +78,17 @@ function readOneFromUserName(username){
     return user;
 }
 
-module.exports={login,register,readOneFromUserName}
+function getChips(username){
+    const stmt = db.prepare('SELECT chips FROM user WHERE username = ?');
+    const chips = stmt.get(username);
+
+    return chips;
+}
+
+function leaderboard(){
+     const stmt = db.prepare('SELECT * FROM user ORDER BY chips DESC');
+     const leader = stmt.all();
+     return leader;
+}
+
+module.exports={login,register,readOneFromUserName,getChips,leaderboard}
