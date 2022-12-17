@@ -54,7 +54,7 @@ async function register(username,lastname,firstname,mail,yearBirthday,password){
         firstname,
         yearBirthday,
         mail,
-        chips: 0,
+        chips: 1000,
         token,
       };
     
