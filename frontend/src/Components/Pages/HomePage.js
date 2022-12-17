@@ -2,7 +2,7 @@
 import image1 from './../../img/MenuCarousel/BlackJackMenuImg.png';
 import image2 from './../../img/MenuCarousel/SlotMachineMenuImg.png';
 import image3 from './../../img/MenuCarousel/RouletteMenuImg.png';
-import jQuery from 'jquery';
+
 
 const Homepage = () => {
   const main = document.querySelector('main');
