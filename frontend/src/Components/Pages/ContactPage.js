@@ -1,4 +1,8 @@
+import { getAuthenticatedUser } from "../../utils/auths";
+
 const ContactPage = () => {
+  const authenticatedUser = getAuthenticatedUser();
+
   const main = document.querySelector('main');
   main.innerHTML = `
 <div class="container-fluid">
@@ -7,7 +11,7 @@ const ContactPage = () => {
         <div class="row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="ConctactDoubleOrNothing@hotmail.com">
+            <input type="email" readonly class="form-control-plaintext" id="staticEmail" value=${authenticatedUser.mail}>
           </div>
           <div class="row">
             <label for="contactFormTextArea">Message</label>
