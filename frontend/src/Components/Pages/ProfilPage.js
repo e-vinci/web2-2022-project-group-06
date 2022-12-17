@@ -30,7 +30,7 @@ const ProfilPage = () => {
                                                     <p class="box-ecart title-info-user">Name</p>
                                                     <h6 class="text-muted title-info-user">${authenticatedUser.lastname}</h6>
                                                     <p class="box-ecart title-info-user">First name</p>
-                                                    <h6 class="text-muted title-info-user">${authenticatedUser.first_name}</h6>
+                                                    <h6 class="text-muted title-info-user">${authenticatedUser.firstname}</h6>
                                                     <p class="box-ecart title-info-user">Chips</p>
                                                     <h6 class="text-muted title-info-user">${authenticatedUser.chips}</h6>
                                                 </div>
