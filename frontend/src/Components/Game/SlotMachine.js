@@ -29,7 +29,7 @@ function checkResult(n1,n2,n3){
 }
 
 function checkResultOnlyFirstTwo(n1, n2, n3){
-  if((n1 === n2 && n1 !== n3) || n1 === n3 && n1 !== n2) {
+  if((n1 === n2 && n1 !== n3) || (n1 === n3 && n1 !== n2) || (n2 === n3 && n2 !== n1)) {
     return true;
   }
   return false;
@@ -78,7 +78,7 @@ function spin(chips, figureN1 , figureN2, figureN3, results , spinWons, spinLost
       
       result.innerHTML = "YOU <green>WON with only two color</green>";
       totWonWith2 += 1;
-      bet.push("<br><font style='color: green;'>+"+credits*(3/2)+"</font>");
+      bet.push("<br><font style='color: green;'>+"+credits*(1/2)+"</font>");
       chipsWon.innerHTML = bet;
       spinWon.innerHTML = totWonWith2;
       manageCreditsWin2(true);
@@ -118,7 +118,7 @@ function manageCredits(x){
 
 function manageCreditsWin2(x){
   if(x){
-    totCredits += credits*(3/2);
+    totCredits += credits*(1);
     textCredits.innerHTML = totCredits;
   }
   else{
