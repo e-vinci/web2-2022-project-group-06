@@ -10,10 +10,11 @@ import './stylesheets/leaderboard.css';
 
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-
+import Homepage from './Components/Pages/HomePage';
 import Router from './Components/Router/Router';
 
-
+Homepage();
 Navbar();
+
 Footer();
 Router();
