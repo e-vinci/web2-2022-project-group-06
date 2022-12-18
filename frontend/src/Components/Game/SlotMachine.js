@@ -2,7 +2,7 @@
 let totWon = 0;
 let totLost = 0;
 let totWonWith2 = 0;
-let totCredits = 1000;
+let totCredits = localStorage.getItem('chips');
 const colors = ["royalblue","red","green", "gold", "purple"];
 
 let credits =  0;

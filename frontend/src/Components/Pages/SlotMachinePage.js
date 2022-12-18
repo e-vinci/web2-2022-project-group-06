@@ -7,7 +7,7 @@ const SlotMachinePage = () => {
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
   <div id="scores" class="animated bounceIn">
-    <h1 >Credits: <value id="textCredits">1000<value></h1>
+    <h1 >Credits: <value id="textCredits">${localStorage.getItem('chips')}<value></h1>
     <input type="text" id="credits" placeholder="Enter your credits to bet"/>  
   </div>
   <div id="container" class="animated bounceIn">
@@ -43,6 +43,7 @@ const SlotMachinePage = () => {
     const chips = document.getElementById("credits").value;
     spin(chips, figure1,figure2, figure3, result, spinWon, spinLost, textCredits, chipsWon);
   });
+  
 
 
 
