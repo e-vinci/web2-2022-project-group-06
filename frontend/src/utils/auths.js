@@ -1,5 +1,6 @@
 const STORE_NAME = 'user';
 const REMEMBER_ME = 'remembered';
+const STORE_CHIPS = 'chips';
 
 let currentUser;
 
@@ -22,6 +23,8 @@ const setAuthenticatedUser = (authenticatedUser) => {
   const remembered = getRememberMe();
   if (remembered) localStorage.setItem(STORE_NAME, serializedUser);
   else sessionStorage.setItem(STORE_NAME, serializedUser);
+
+  localStorage.setItem(STORE_CHIPS, authenticatedUser.chips);
 
   currentUser = authenticatedUser;
 };

@@ -37,6 +37,7 @@ const Footer = () => {
             <li class="nav-item mb-2"><a href="#" data-uri="/blackJack" class="nav-link p-0 text-muted">BlackJack</a></li>
             <li class="nav-item mb-2"><a href="#" data-uri="/roulette" class="nav-link p-0 text-muted">Roulette</a></li>
             <li class="nav-item mb-2"><a href="#" data-uri="/slotMachine" class="nav-link p-0 text-muted">SlotMachine</a></li>
+            <li class="nav-item mb-2"><a href="#" data-uri="/leaderboard" class="nav-link p-0 text-muted">LeaderBoard</a></li>
             </ul>
         </div>
         </footer>

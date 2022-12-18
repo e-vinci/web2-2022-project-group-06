@@ -86,9 +86,11 @@ function getChips(username){
 }
 
 function leaderboard(){
-     const stmt = db.prepare('SELECT * FROM user ORDER BY chips DESC');
-     const leader = stmt.all();
-     return leader;
+    const stmt = db.prepare('SELECT username, score, chips FROM user ORDER BY score DESC');
+    const users = stmt.all();
+
+    return users;
 }
+
 
 module.exports={login,register,readOneFromUserName,getChips,leaderboard}

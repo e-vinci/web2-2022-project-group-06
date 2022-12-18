@@ -9,6 +9,8 @@ let dealerDeck = [];
 let playerDeck = [];
 let deckParty = new Deck();
 
+let amoutChips = localStorage.getItem('chips');
+
 function setBet(bet) {
 
     dealerDeck = [];
