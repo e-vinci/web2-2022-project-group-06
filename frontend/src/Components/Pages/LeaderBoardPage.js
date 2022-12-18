@@ -92,4 +92,3 @@ import Navigate from '../Router/Navigate';
     leaderboardSection.appendChild(backButton);
 }
 */
-export default LeaderboardPage;

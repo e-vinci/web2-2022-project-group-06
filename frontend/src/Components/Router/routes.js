@@ -20,7 +20,7 @@ const routes = {
   '/profil':ProfilPage,
   '/contact': ContactPage,
   '/slotMachine': SlotMachinePage,
-  '/leaderboard': LeaderboardPage,
+  /*'/leaderboard': LeaderboardPage,*/
 };
 
 export default routes;

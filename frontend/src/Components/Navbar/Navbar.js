@@ -75,6 +75,10 @@ function renderNavbar() {
           </li>
 
           <li class="nav-item-Prof">
+          <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/leaderboard">Leaderboard</a></button>
+        </li>
+
+          <li class="nav-item-Prof">
             <button class="dropbtn"><a class="nav-link" aria-current="page" href="#" data-uri="/profil">Profil</a></button>
           </li>
 
