@@ -1,3 +1,6 @@
+API de Double or Nothing
+===================================================
+
 Si vous ne l'avez pas fait, vous pouvez cloner le repo pour initier votre application : git clone https://github.com/e-vinci/web2-2022-project-group-06.git
 Installation des dépendances et démarrage du boilerplate :
 npm i # (equivalent de npm install)
