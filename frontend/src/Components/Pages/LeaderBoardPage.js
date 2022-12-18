@@ -3,7 +3,7 @@
 import { clearPage } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
-const LeaderboardPage = async () => {
+/*const LeaderboardPage = async () => {
     clearPage();
 
     const result = await fetch('api/users/leaderboard', {
@@ -91,5 +91,5 @@ const LeaderboardPage = async () => {
     });
     leaderboardSection.appendChild(backButton);
 }
-
+*/
 export default LeaderboardPage;
