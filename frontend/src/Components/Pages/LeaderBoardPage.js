@@ -6,8 +6,8 @@ import Navigate from '../Router/Navigate';
 const LeaderboardPage = async () => {
     clearPage();
 
-    const result = await fetch(`${process.env.API_BASE_URL}/leaderboard`, {
-        method: 'POST',
+    const result = await fetch('api/users/leaderboard', {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },

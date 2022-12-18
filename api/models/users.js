@@ -86,7 +86,7 @@ function getChips(username){
 }
 
 function leaderboard(){
-    const stmt = db.prepare('SELECT username, score, chips FROM user ORDER BY score DESC');
+    const stmt = db.prepare('SELECT username, chips FROM user ORDER BY chips DESC');
     const users = stmt.all();
 
     return users;
